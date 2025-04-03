@@ -1,5 +1,5 @@
 import React from "react";
-import useTelegram from '../hooks/useTelegram'
+import useTelegram from '../hooks/useTelegram';
 
 const Header = () => {
     const {user, onClose} = useTelegram();
@@ -13,5 +13,4 @@ const Header = () => {
         </div>
     );
 };
-
 export default Header;

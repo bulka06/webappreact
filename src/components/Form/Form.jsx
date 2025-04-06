@@ -35,7 +35,9 @@ const Form = () => {
     };
     
     return (
+     
         <div className="form">
+               <p> Ghbdfg</p>
             <h3>Введіть свої дані</h3>
             <input 
                 type="text" 

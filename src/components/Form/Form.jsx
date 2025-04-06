@@ -30,10 +30,6 @@ const Form = () => {
     }, [name, phone, street, tg]);
 
 
-
-
-
-
     useEffect(() => {
         if (!name || !phone || !street) {
             tg.MainButton.hide();
@@ -42,17 +38,18 @@ const Form = () => {
         }
     }, [name, phone, street, tg]);
 
+
+
     const onChangeName = (e) => {
         setName(e.target.value);
-    };
-    
+    };  
     const onChangePhone = (e) => {
         setPhone(e.target.value);
-    };
-    
+    };   
     const onChangeStreet = (e) => {
         setStreet(e.target.value);
     };
+    
     
     return (
         <div className="form">
@@ -64,7 +61,6 @@ const Form = () => {
                 value={name}
                 onChange={onChangeName}
             />
-
             <input 
                 type="text" 
                 placeholder="Ваш номер телефону" 
@@ -72,7 +68,6 @@ const Form = () => {
                 value={phone}
                 onChange={onChangePhone}
             />
-
             <input 
                 type="text" 
                 placeholder="Вулиця" 

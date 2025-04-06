@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './Form.css';
 import useTelegram from "../hooks/useTelegram";
 
@@ -6,29 +6,28 @@ const Form = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [street, setStreet] = useState('');
-    const {tg} = useTelegram();
+    const { tg } = useTelegram();
+
+    const onSendData = useCallback(() => {
+        const data = {
+            name,
+            phone,
+            street,
+        };
+        tg.sendData(JSON.stringify(data));
+    }, [name, phone, street, tg]);
 
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Відправити дані',
         });
-        
-    const onSendData = useCallback(() => {
-            const data = {
-                name,
-                phone,
-                street
-            };
-            tg.sendData(JSON.stringify(data));
-        }, [name, phone, street, tg]);
-        
 
         tg.onEvent('mainButtonClicked', onSendData);
+
         return () => {
             tg.offEvent('mainButtonClicked', onSendData);
         };
-    }, [name, phone, street, tg]);
-
+    }, [onSendData, tg]);
 
     useEffect(() => {
         if (!name || !phone || !street) {
@@ -38,19 +37,10 @@ const Form = () => {
         }
     }, [name, phone, street, tg]);
 
+    const onChangeName = (e) => setName(e.target.value);
+    const onChangePhone = (e) => setPhone(e.target.value);
+    const onChangeStreet = (e) => setStreet(e.target.value);
 
-
-    const onChangeName = (e) => {
-        setName(e.target.value);
-    };  
-    const onChangePhone = (e) => {
-        setPhone(e.target.value);
-    };   
-    const onChangeStreet = (e) => {
-        setStreet(e.target.value);
-    };
-    
-    
     return (
         <div className="form">
             <h3>Введіть свої дані</h3>

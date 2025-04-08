@@ -1,18 +1,24 @@
 import React from "react";
-import useTelegram from '../hooks/useTelegram';
-import './Header.css';
-
+import "./Header.css";
 
 const Header = () => {
-    const {user, onClose} = useTelegram();
-
-    return(
-        <div className = {'header'}>
-             <button onClick={onClose}> Закрити </button>
-                <span className= {'username'}> 
-                {user?.username}
-                </span>
-        </div>
+    return (
+        <header className="header-container">
+            <div className="left">
+                <span className="icon">☰</span>
+            </div>
+            <div className="center">
+                <div className="brand-text">
+                    <div>Служба доставки</div>
+                    <strong>Тук-Тук</strong>
+                </div>
+            </div>
+            <div className="right">
+                <span className="icon">🛒</span>
+                <span className="cart-count">1</span>
+            </div>
+        </header>
     );
 };
+
 export default Header;

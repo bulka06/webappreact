@@ -1,16 +1,23 @@
-
 .zaklad-home {
-    padding: 20px;
+    padding: 10px; /* Зменшуємо відступи */
+    box-sizing: border-box; /* Додаємо до елементів вміст і відступи */
   }
   
   .dishes {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Два елементи в ряд */
-    gap: 20px;
+    grid-template-columns: 1fr; /* За замовчуванням 1 страву в ряд для мобільних */
+    gap: 10px; /* Відступи між елементами */
   }
   
   .dish-container {
     display: flex;
     justify-content: center;
+  }
+  
+  @media (min-width: 600px) {
+    /* Для екранів шириною більше 600px, 2 страви в ряд */
+    .dishes {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   

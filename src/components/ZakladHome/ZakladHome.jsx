@@ -1,37 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import './ZakladHome.css';
 import FoodItem from '../FoodItem/FoodItem';
+import { places } from './data';  // Якщо data.js знаходиться в тій самій папці
 
 const ZakladHome = () => {
   const { id } = useParams(); // отримуємо id з URL
   const [place, setPlace] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(""); // Стан для вибраної категорії
+  const categoryRefs = useRef({}); // Для зберігання посилань на категорії
 
   useEffect(() => {
     console.log("ID з URL:", id); // Додаємо логування параметра id
-
-    const places = [
-      {
-        id: '1',
-        title: 'Чудовий ранок',
-        schedule: 'понеділок – п’ятниця 08:00 – 21:00\nсубота – неділя 10:00 – 22:00',
-        dishes: [
-          { name: 'Чікен бургер', description: 'Соковите куряче м’ясо, свіжі овочі', price: 80 },
-          { name: 'Біф бургер', description: 'Соковитий яловичий бургер', price: 95 },
-          { name: 'Курячі крильця', description: 'Хрусткі курячі крильця', price: 70 },
-          { name: 'Картопля фрі', description: 'Смажена картопля з соусом', price: 40 },
-        ],
-      },
-      {
-        id: '2',
-        title: 'Sushi Zoom',
-        schedule: '11:00 – 22:00',
-        dishes: [
-          { name: 'Суші сет', description: 'Різноманітні суші та роли', price: 150 },
-          { name: 'Роли Калифорнія', description: 'Роли з авокадо і лососем', price: 120 },
-        ],
-      },
-    ];
 
     // Знайдемо заклад за id
     const foundPlace = places.find(place => place.id === id);
@@ -44,17 +24,67 @@ const ZakladHome = () => {
     return <div>Заклад не знайдено</div>;
   }
 
+  // Обробка зміни вибраної категорії
+  const handleCategoryChange = (event) => {
+    const categoryName = event.target.value;
+    setSelectedCategory(categoryName);
+
+    // Прокручуємо до вибраної категорії
+    if (categoryRefs.current[categoryName]) {
+      categoryRefs.current[categoryName].scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
+  // Фільтруємо страви за вибраною категорією
+  const selectedCategoryDishes = selectedCategory
+    ? place.categories.find(category => category.name === selectedCategory)?.dishes || []
+    : place.categories.flatMap(category => category.dishes); // Якщо категорія не вибрана, показуємо всі страви
+
   return (
     <div className="zaklad-home">
       <h2>{place.title}</h2>
       <p>{place.schedule.split('\n').map((line, index) => <span key={index}>{line}<br /></span>)}</p>
 
-      <div className="dishes">
-        {place.dishes.map((dish, index) => (
-          <div key={index} className="dish-container">
-            <FoodItem item={dish} />
+      <div className="category-selector">
+      
+        <select id="category" value={selectedCategory} onChange={handleCategoryChange}>
+          <option value="">-- Всі страви --</option>
+          {place.categories.map((category, index) => (
+            <option key={index} value={category.name}>{category.name}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* Відображення категорій та страв з відповідними рефами для скролінгу */}
+      <div className="categories">
+        {place.categories.map((category, categoryIndex) => (
+          <div key={categoryIndex} className="category" ref={(el) => categoryRefs.current[category.name] = el}>
+            <h3>{category.name}</h3>
+            <div className="dishes">
+              {category.dishes.map((dish, index) => (
+                <div key={index} className="dish-container">
+                  <FoodItem item={dish} />
+                </div>
+              ))}
+            </div>
           </div>
         ))}
+      </div>
+
+    
+      <div className="dishes">
+        {selectedCategoryDishes.length > 0 ? (
+          selectedCategoryDishes.map((dish, index) => (
+            <div key={index} className="dish-container">
+              <FoodItem item={dish} />
+            </div>
+          ))
+        ) : (
+          <p>Будь ласка, виберіть категорію страв.</p>
+        )}
       </div>
     </div>
   );

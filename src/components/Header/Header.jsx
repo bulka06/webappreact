@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import useTelegram from "../hooks/useTelegram";
 
 const Header = () => {
     return (
@@ -10,12 +11,12 @@ const Header = () => {
             <div className="center">
                 <div className="brand-text">
                     <div>Служба доставки</div>
-                    <strong>Тук-Тук</strong>
+                    <strong>FastGo</strong>
                 </div>
             </div>
             <div className="right">
                 <span className="icon">🛒</span>
-                <span className="cart-count">1</span>
+                <span className="cart-count">0</span>
             </div>
         </header>
     );

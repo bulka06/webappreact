@@ -1,0 +1,16 @@
+
+.zaklad-home {
+    padding: 20px;
+  }
+  
+  .dishes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два елементи в ряд */
+    gap: 20px;
+  }
+  
+  .dish-container {
+    display: flex;
+    justify-content: center;
+  }
+  

@@ -5,7 +5,7 @@
   
   .dishes {
     display: grid;
-    grid-template-columns: 1fr; /* За замовчуванням 1 страву в ряд для мобільних */
+    grid-template-columns: repeat(2, 1fr); /* 2 страви в ряд для всіх пристроїв */
     gap: 10px; /* Відступи між елементами */
   }
   
@@ -15,9 +15,16 @@
   }
   
   @media (min-width: 600px) {
-    /* Для екранів шириною більше 600px, 2 страви в ряд */
+    /* Для екранів шириною більше 600px (наприклад, планшети і десктопи) */
     .dishes {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr); /* 2 страви в ряд */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    /* Для екранів більше 1024px, якщо потрібно ще більше відступів або змінити кількість страв в ряд */
+    .dishes {
+      grid-template-columns: repeat(3, 1fr); /* 3 страви в ряд для великих екранів */
     }
   }
   

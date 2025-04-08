@@ -1,14 +1,22 @@
 import React from "react";
 import "./Home.css";
 import useTelegram from "../hooks/useTelegram";
-import homeIcon from "../assets/homeIcon.jpg"; // Змінили шлях до зображення
+import ZakladList from "../ZakladList/ZakladList";
 
 const Home = () => {
     const { user } = useTelegram();
 
     return (
         <div className="home">
-            <img src={homeIcon} alt="Головна картинка" className="home-image" />
+            <div className="home-background">
+                <div className="home-content">
+                    <h1>Доставка вашої улюбленої їжі</h1>
+                </div>
+            </div>
+
+            <div className="home-list-wrapper">
+                <ZakladList />
+            </div>
         </div>
     );
 };

@@ -4,7 +4,7 @@ import './App.css';
 import useTelegram from './components/hooks/useTelegram';
 import Header from './components/Header/Header';
 import { Route, Routes } from 'react-router-dom';
-import ProductList from './components/ProductList/ProductList';
+
 import Home from './components/Home/Home';
 import Form from './components/Form/Form';
 

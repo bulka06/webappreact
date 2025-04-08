@@ -10,7 +10,7 @@ const Header = () => {
             </div>
             <div className="center">
                 <div className="brand-text">
-                    <div>Служба доставки</div>
+                    <p>Служба доставки</p>
                     <strong>FastGo</strong>
                 </div>
             </div>

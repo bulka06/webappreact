@@ -1,0 +1,45 @@
+.place-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.place-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+
+.place-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.place-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.place-schedule {
+    font-size: 14px;
+    color: #555;
+    white-space: pre-line;
+}
+
+.new-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: red;
+    color: white;
+    padding: 2px 8px;
+    font-size: 12px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}

@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import './ZakladHome.css';
 import FoodList from '../FoodList/FoodList'; // Імпортуємо FoodList замість FoodItem
-import { places } from './data';
+import { places } from '../Data/data';
+
 
 const ZakladHome = () => {
   const { id } = useParams();
@@ -43,7 +44,7 @@ const ZakladHome = () => {
         </select>
       </div>
       
-      {/* Всі категорії відображаються одразу */}
+      
       <div className="categories">
         {place.categories.map((category, index) => (
           <div 

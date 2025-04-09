@@ -1,6 +1,6 @@
 import React from 'react';
 import FoodItem from '../FoodItem/FoodItem';
-import './FoodList.css'; // Не забудьте створити цей файл стилів
+import './FoodList.css'; 
 
 const FoodList = ({ dishes }) => {
   return (

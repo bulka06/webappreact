@@ -11,7 +11,7 @@ import ZakladHome from './components/ZakladHome/ZakladHome';
 import './components/Header/Header.css';
 
 function App() {
-  const { onToggleButton, tg } = useTelegram();
+  const {tg } = useTelegram();
 
   useEffect(() => {
     tg.ready();
@@ -22,7 +22,6 @@ function App() {
       <Header />
       <Routes>
         <Route index element={<Home />} />
-        {/* Оновлений маршрут для ZakladHome */}
         <Route path="zaklad/:id" element={<ZakladHome />} />
         <Route path="form" element={<Form />} />
       </Routes>

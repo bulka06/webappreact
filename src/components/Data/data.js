@@ -1,10 +1,11 @@
-// data.js
 
 export const places = [
     {
       id: '1',
-      title: 'Pizza Soprano', /* Піца з Тераси  інше з ТОТО*/
+      title: 'Pizza Soprano', /* Піца з Тераси  інше з То-То*/
+      image: require('../assets/sunIcon.png'),
       schedule: 'понеділок – п’ятниця 08:00 – 21:00\nсубота – неділя 10:00 – 22:00',
+      isNew: true,
       categories: [
         {
           name: 'Піца',
@@ -64,7 +65,9 @@ export const places = [
     {
       id: '2',
       title: 'Katana Sushi',  /*  З Sushi Zoom*/
+      image: require('../assets/sunIcon.png'),
       schedule: '11:00 – 22:00',
+      isNew: false,
       categories: [
         {
           name: 'Каліфорнії',

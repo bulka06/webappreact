@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom'; // імпортуємо Link
 const places = [
     {
         id: '1',
-        title: 'Чудовий ранок',
+        title: 'Pizza Soprano',
         image: require('../assets/sunIcon.png'),
         schedule: 'понеділок – п’ятниця 08:00 – 21:00\nсубота – неділя 10:00 – 22:00',
         isNew: true
     },
     {
         id: '2',
-        title: 'Sushi Zoom',
+        title: 'Katana Sushi',
         image: require('../assets/sunIcon.png'),
         schedule: '11:00 – 22:00',
         isNew: false

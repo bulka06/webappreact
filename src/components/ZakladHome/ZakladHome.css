@@ -1,35 +1,70 @@
 .zaklad-home {
-    padding: 10px; /* Зменшуємо відступи */
-    box-sizing: border-box; /* Додаємо до елементів вміст і відступи */
-  }
-  
+  padding: 10px;
+  padding-top: 80px; /* Додаємо відступ зверху, щоб уникнути перекриття з хедером */
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.sticky-category-selector {
+  position: -webkit-sticky; /* Для старих версій браузерів */
+  position: sticky;
+  top: 60px; /* Це відстань від верху екрану, де буде закріплений селект */
+  background-color: white; /* Фон для селекту */
+  z-index: 10; /* Це необхідно, щоб селект залишався поверх контенту */
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dishes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.dish-container {
+  display: flex;
+  justify-content: center;
+}
+
+.food-card {
+  max-width: 160px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
   .dishes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 страви в ряд для всіх пристроїв */
-    gap: 10px; /* Відступи між елементами */
+      grid-template-columns: repeat(2, 1fr);
   }
-  
-  .dish-container {
-    display: flex;
-    justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .dishes {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
   }
-  
-  .food-card {
-    max-width: 160px; /* Задаємо максимальну ширину кожної страви */
-    margin: 0 auto; /* Центруємо картку всередині контейнера */
+}
+
+@media (min-width: 1024px) {
+  .dishes {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
   }
-  
-  @media (min-width: 600px) {
-    /* Для екранів шириною більше 600px (наприклад, планшети і десктопи) */
-    .dishes {
-      grid-template-columns: repeat(2, 1fr); /* 2 страви в ряд */
-    }
+}
+
+@media (min-width: 1440px) {
+  .dishes {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 25px;
   }
-  
-  @media (min-width: 1024px) {
-    /* Для екранів більше 1024px, якщо потрібно ще більше відступів або змінити кількість страв в ряд */
-    .dishes {
-      grid-template-columns: repeat(3, 1fr); /* 3 страви в ряд для великих екранів */
-    }
-  }
-  
+}

@@ -1,4 +1,9 @@
 .header-container {
+    position: fixed; /* робить хедер фіксованим */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* щоб бути поверх іншого контенту */
     background-color: #1d1d1d;
     color: white;
     display: flex;
@@ -6,7 +11,12 @@
     justify-content: space-between;
     padding: 10px 16px;
     height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* невелика тінь */
 }
+.main-content {
+    padding-top: 60px; /* Висота хедера */
+}
+
 
 .left, .center, .right {
     display: flex;
@@ -58,4 +68,5 @@
 .burger-icon.open span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
+
 

@@ -2,12 +2,12 @@ import React from 'react';
 import FoodItem from '../FoodItem/FoodItem';
 import './FoodList.css'; 
 
-const FoodList = ({ dishes }) => {
+const FoodList = ({ dishes, id }) => {
   return (
     <div className="dishes">
       {dishes.map((dish, idx) => (
         <div key={idx} className="dish-container">
-          <FoodItem item={dish} />
+          <FoodItem item={dish} id={id} />
         </div>
       ))}
     </div>

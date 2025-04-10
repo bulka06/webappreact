@@ -10,6 +10,7 @@ const ZakladHome = () => {
   const categoryRefs = useRef({});
 
   useEffect(() => {
+    // ID з useParams вже є рядком, як і в наших даних
     const foundPlace = places.find(place => place.id === id);
     setPlace(foundPlace);
   }, [id]);
@@ -50,7 +51,7 @@ const ZakladHome = () => {
             className="category"
           >
             <h3>{category.name}</h3>
-            <FoodList dishes={category.dishes} />
+            <FoodList dishes={category.dishes} id={id} />
           </div>
         ))}
       </div>

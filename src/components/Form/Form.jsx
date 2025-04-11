@@ -1,70 +1,57 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Form.css';
-import useTelegram from "../hooks/useTelegram";
 
 const Form = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [street, setStreet] = useState('');
-    const { tg } = useTelegram();
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const onSendData = useCallback(() => {
+    const onSendData = () => {
         const data = {
             name,
             phone,
             street,
         };
-        tg.sendData(JSON.stringify(data));
-    }, [name, phone, street, tg]);
-
-    useEffect(() => {
-        tg.MainButton.setParams({
-            text: 'Відправити дані',
-        });
-
-        tg.onEvent('mainButtonClicked', onSendData);
-
-        return () => {
-            tg.offEvent('mainButtonClicked', onSendData);
-        };
-    }, [onSendData, tg]);
-
-    useEffect(() => {
-        if (!name || !phone || !street) {
-            tg.MainButton.hide();
-        } else {
-            tg.MainButton.show();
-        }
-    }, [name, phone, street, tg]);
-
-    const onChangeName = (e) => setName(e.target.value);
-    const onChangePhone = (e) => setPhone(e.target.value);
-    const onChangeStreet = (e) => setStreet(e.target.value);
+        console.log("Дані надіслано:", data);
+        setIsSubmitted(true);
+    };
 
     return (
         <div className="form">
             <h3>Введіть свої дані</h3>
+
             <input 
                 type="text" 
                 placeholder="Ваше ім'я" 
                 className="input"
                 value={name}
-                onChange={onChangeName}
+                onChange={e => setName(e.target.value)}
             />
             <input 
                 type="text" 
                 placeholder="Ваш номер телефону" 
                 className="input"
                 value={phone}
-                onChange={onChangePhone}
+                onChange={e => setPhone(e.target.value)}
             />
             <input 
                 type="text" 
                 placeholder="Вулиця" 
                 className="input"
                 value={street}
-                onChange={onChangeStreet}
+                onChange={e => setStreet(e.target.value)}
             />
+
+            <button 
+                className="submit-button"
+                onClick={onSendData}
+                disabled={!name || !phone || !street}
+            >
+                Відправити дані
+            </button>
+
+            {isSubmitted && <p className="success-msg">Дані успішно надіслано ✅</p>}
         </div>
     );
 };

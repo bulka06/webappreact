@@ -8,7 +8,7 @@ const HeaderBar = ({ isOpen, onClose }) => {
             <button className="close-btn" onClick={onClose}>×</button>
 
             <Link to="/" className="menu-btn" onClick={onClose}>Головна</Link>
-            <button className="menu-btn">Меню</button>
+            <button className="menu-btn">Заклади</button>
             <button className="menu-btn">Про нас</button>
             <button className="menu-btn">Контакти</button>
         </div>

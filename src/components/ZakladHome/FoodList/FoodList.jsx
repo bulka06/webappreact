@@ -1,5 +1,5 @@
 import React from 'react';
-import FoodItem from '../FoodItem/FoodItem';
+import FoodItem from '../FoodItem/FoodItem'; // імпорт компоненту FoodItem 
 import './FoodList.css'; 
 
 const FoodList = ({ dishes, id }) => {

@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Form from './components/Form/Form';
 import ZakladHome from './components/ZakladHome/ZakladHome';
+import ShopHome from './components/ZakladHome/ShopHome/ShopHome';
 import FoodInfo from './components/FoodInfo/FoodInfo';
 import WorkTime from './components/WorkTime/WorkTime';
 import FormModal from './components/FormModal/FormModal';
@@ -25,18 +26,16 @@ function App() {
   return (
     <div className="App">
       <Header />
-
       <button 
         className="worktime-button" 
         onClick={() => setShowWorkTime(true)}
-      > 🕒
-      </button>
+      > 🕒</button>
       <WorkTime isOpen={showWorkTime} onClose={() => setShowWorkTime(false)} />
-
       <FormModal />
       <Routes>
         <Route index element={<Home />} />
         <Route path="zaklad/:id" element={<ZakladHome />} />
+        <Route path="shop/:id" element={<ShopHome />} />
         <Route path="food-info/:id/:dishesId" element={<FoodInfo />} />
         <Route path="form" element={<Form />} />
       </Routes>

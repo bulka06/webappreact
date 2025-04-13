@@ -1,11 +1,10 @@
 import React from "react";
 import "./Home.css";
-import useTelegram from "../hooks/useTelegram";
-import ZakladList from "../ZakladList/ZakladList";
+import ZakladList from "./ZakladList/ZakladList";
+import HomeButtons from "./HomeButtons/HomeButtons";
+import CategoryList from "./CategoryList/CategoryList";
 
 const Home = () => {
-    const { user } = useTelegram();
-
     return (
         <div className="home">
             <div className="home-background">
@@ -13,10 +12,12 @@ const Home = () => {
                     <h1>Доставка вашої улюбленої їжі</h1>
                 </div>
             </div>
-
+            <HomeButtons />
             <div className="home-list-wrapper">
                 <ZakladList />
+                <CategoryList /> {/* ось тут ми додаємо */}
             </div>
+            
         </div>
     );
 };

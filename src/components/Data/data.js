@@ -129,3 +129,115 @@ export const places = [
     ],
   },
 ];
+
+
+export const products = [
+  {
+    id: '3',
+    title: 'АТБ',
+    schedule: 'понеділок – неділя 05:00 – 23:55',
+    isNew: false,
+    categories: [
+      
+      {
+        name: 'Фрукти, овочі',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '321', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179, },
+          { dishesId: '321', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Молочні продукти та яйця',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '331', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'М`ясо',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '341', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Риба',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '351', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 }, 
+        ],
+      },
+      {
+        name: 'Хліб та випічка',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '361', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Напої',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '371', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Ковбаси та м`ясні вироби',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '381', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Сири',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '391', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Снеки та чипси',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '3101', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Солодощі',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '3111', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Крупи та консерви',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '3121', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Заморожена продукція',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '3131', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Для дому',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '3141', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+      {
+        name: 'Гігієна та краса',
+        image: require('../assets/sunIcon.png'),
+        dishes: [
+          { dishesId: '3151', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+        ],
+      },
+    ],
+  },
+]                

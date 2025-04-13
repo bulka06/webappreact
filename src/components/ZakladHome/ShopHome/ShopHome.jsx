@@ -1,22 +1,21 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import './ZakladHome.css';
-import FoodList from './FoodList/FoodList'; 
-import { places } from '../Data/data';
+import './ShopHome.css';
+import FoodList from '../FoodList/FoodList';
+import { products } from '../../Data/data';
 
-const ZakladHome = () => {
+const ShopHome = () => {
   const { id } = useParams();
-  const [place, setPlace] = useState(null);
+  const [product, setProduct] = useState(null);
   const categoryRefs = useRef({});
 
   useEffect(() => {
-    // ID з useParams вже є рядком, як і в наших даних
-    const foundPlace = places.find(place => place.id === id);
-    setPlace(foundPlace);
+    const foundProduct = products.find(product => product.id === id);
+    setProduct(foundProduct);
   }, [id]);
 
-  if (!place) {
-    return <div>Заклад не знайдено</div>;
+  if (!product) {
+    return <div>Магазин не знайдено</div>;
   }
 
   const handleCategoryChange = (event) => {
@@ -28,23 +27,23 @@ const ZakladHome = () => {
   };
 
   return (
-    <div className="zaklad-home">
-      <h2>{place.title}</h2>
-      <p>{place.schedule.split('\n').map((line, index) => (
+    <div className="shop-home">
+      <h2>{product.title}</h2>
+      <p>{product.schedule.split('\n').map((line, index) => (
         <span key={index}>{line}<br /></span>
       ))}</p>
 
       <div className="sticky-category-selector">
         <select onChange={handleCategoryChange} defaultValue="">
           <option value="">-- Всі категорії --</option>
-          {place.categories.map((category, index) => (
+          {product.categories.map((category, index) => (
             <option key={index} value={category.name}>{category.name}</option>
           ))}
         </select>
       </div>
 
       <div className="categories">
-        {place.categories.map((category, index) => (
+        {product.categories.map((category, index) => (
           <div 
             key={index} 
             ref={el => categoryRefs.current[category.name] = el} 
@@ -59,4 +58,4 @@ const ZakladHome = () => {
   );
 };
 
-export default ZakladHome;
+export default ShopHome;

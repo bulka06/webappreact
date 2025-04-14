@@ -1,8 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './FoodItem.css';
+import { useBask } from '../../Basket/BaskContext/BaskContext';
+
 
 const FoodItem = ({ item, id }) => {
+    const { addToBask } = useBask();
+
+    const handleAddToBask = () => {
+        addToBask({
+            id: item.dishesId,
+            name: item.name,
+            price: item.price,
+        });
+    };
+
     return (
         <div className="food-card">
             {/* Додаємо картинку, якщо є */}
@@ -14,9 +26,14 @@ const FoodItem = ({ item, id }) => {
             <p>{item.description}</p>
             <strong>{item.price} грн</strong>
 
-            <Link to={`/food-info/${id}/${item.dishesId}`} className="food-info-link">
-                Деталі
-            </Link>
+            <div className="food-card-actions">
+                <Link to={`/food-info/${id}/${item.dishesId}`} className="food-info-link">
+                    Деталі
+                </Link>
+                <button className="add-to-bask-btn" onClick={handleAddToBask}>
+                    +
+                </button>
+            </div>
         </div>
     );
 };

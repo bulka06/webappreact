@@ -1,0 +1,13 @@
+.bask-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  

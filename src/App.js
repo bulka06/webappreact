@@ -3,14 +3,16 @@ import './App.css';
 import useTelegram from './components/hooks/useTelegram';
 import Header from './components/Header/Header';
 import { Route, Routes } from 'react-router-dom';
+import { BaskProvider } from './components/Basket/BaskContext/BaskContext';
 
 import Home from './components/Home/Home';
 import Form from './components/Form/Form';
 import ZakladHome from './components/ZakladHome/ZakladHome';
 import ShopHome from './components/ZakladHome/ShopHome/ShopHome';
 import FoodInfo from './components/FoodInfo/FoodInfo';
-import WorkTime from './components/WorkTime/WorkTime';
 import FormModal from './components/FormModal/FormModal';
+import BaskButton from './components/Basket/BaskButton/BaskButton';
+import BaskModal from './components/Basket/BaskModal/BaskModal'; // Додайте імпорт
 
 import './components/Header/Header.css';
 import './components/WorkTime/WorkTime.css';
@@ -18,8 +20,8 @@ import './components/FormModal/FormModal.css';
 
 function App() {
   const { tg } = useTelegram();
-  const [showWorkTime, setShowWorkTime] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Стейт модалки форми
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBaskModalOpen, setIsBaskModalOpen] = useState(false); // Додаємо стан для модалки кошика
 
   useEffect(() => {
     tg.ready();
@@ -27,36 +29,32 @@ function App() {
 
   return (
     <div className="App">
-      {/* 👇 передаємо функцію відкриття модалки у Header */}
-      <Header onOpenModal={() => setIsModalOpen(true)} />
+      <BaskProvider>
+        <Header onOpenModal={() => setIsModalOpen(true)} />
 
-      <div>
-        {/* Кнопка для відкриття WorkTime */}
-        <button 
-          className="worktime-button" 
-          onClick={() => setShowWorkTime(true)}
-        >🕒</button>
+        <div>
+          <button
+            className="form-floating-button"
+            onClick={() => setIsModalOpen(true)}
+          >
+          </button>
+          {isModalOpen && <FormModal onClose={() => setIsModalOpen(false)} />}
+          
+          {/* Кнопка відкриття кошика */}
+          <BaskButton onClick={() => setIsBaskModalOpen(true)} />
+          
+          {/* Модальне вікно кошика */}
+          {isBaskModalOpen && <BaskModal onClose={() => setIsBaskModalOpen(false)} />}
+        </div>
 
-        <WorkTime isOpen={showWorkTime} onClose={() => setShowWorkTime(false)} />
-
-        {/* Плаваюча кнопка для відкриття модалки форми */}
-        <button 
-          className="form-floating-button"
-          onClick={() => setIsModalOpen(true)}
-        > 
-        </button>
-
-        {/* Модальне вікно форми */}
-        {isModalOpen && <FormModal onClose={() => setIsModalOpen(false)} />}
-      </div>
-
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="zaklad/:id" element={<ZakladHome />} />
-        <Route path="shop/:id" element={<ShopHome />} />
-        <Route path="food-info/:id/:dishesId" element={<FoodInfo />} />
-        <Route path="form" element={<Form />} />
-      </Routes>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="zaklad/:id" element={<ZakladHome />} />
+          <Route path="shop/:id" element={<ShopHome />} />
+          <Route path="food-info/:id/:dishesId" element={<FoodInfo />} />
+          <Route path="form" element={<Form />} />
+        </Routes>
+      </BaskProvider>
     </div>
   );
 }

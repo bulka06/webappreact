@@ -9,3 +9,10 @@ body {
 
  color: var(--tg-theme-text-color);
 }
+
+.basket-button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Високий z-index, щоб кнопка була поверх інших елементів */
+}

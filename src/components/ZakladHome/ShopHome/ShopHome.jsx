@@ -1,13 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import './ShopHome.css';
 import FoodList from '../FoodList/FoodList';
 import { products } from '../../Data/data';
 
 const ShopHome = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const location = useLocation();
   const categoryRefs = useRef({});
+  const [product, setProduct] = useState(null);
+
+  const queryParams = new URLSearchParams(location.search);
+  const selectedCategoryId = queryParams.get('categoryId');
 
   useEffect(() => {
     const foundProduct = products.find(product => product.id === id);
@@ -19,12 +23,17 @@ const ShopHome = () => {
   }
 
   const handleCategoryChange = (event) => {
-    const categoryName = event.target.value;
-    const ref = categoryRefs.current[categoryName];
+    const categoryId = event.target.value;
+    const ref = categoryRefs.current[categoryId];
     if (ref) {
       ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  // ✨ Фільтруємо категорії, якщо в URL є categoryId
+  const visibleCategories = selectedCategoryId
+    ? product.categories.filter(cat => String(cat.categoryId) === selectedCategoryId)
+    : product.categories;
 
   return (
     <div className="shop-home">
@@ -37,16 +46,16 @@ const ShopHome = () => {
         <select onChange={handleCategoryChange} defaultValue="">
           <option value="">-- Всі категорії --</option>
           {product.categories.map((category, index) => (
-            <option key={index} value={category.name}>{category.name}</option>
+            <option key={index} value={category.categoryId}>{category.name}</option>
           ))}
         </select>
       </div>
 
       <div className="categories">
-        {product.categories.map((category, index) => (
-          <div 
-            key={index} 
-            ref={el => categoryRefs.current[category.name] = el} 
+        {visibleCategories.map((category, index) => (
+          <div
+            key={index}
+            ref={el => categoryRefs.current[category.categoryId] = el}
             className="category"
           >
             <h3>{category.name}</h3>

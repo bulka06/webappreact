@@ -148,35 +148,49 @@ export const products = [
       
       {
         name: 'Фрукти, овочі',
+        categoryId: 31,
         image: require('../assets/sunIcon.png'),
         dishes: [
-          { dishesId: '321', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179, },
-          { dishesId: '321', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+          { dishesId: '321', name: 'Яблука', description: '', price: 25,
+            imageFood: require('../assets/homeIcon.jpg')},
+          { dishesId: '321', name: 'Апельсини', description: '', price: 70,
+            imageFood: require('../assets/homeIcon.jpg')
+           },
         ],
       },
       {
         name: 'Молочні продукти та яйця',
+        categoryId: 32,
         image: require('../assets/sunIcon.png'),
         dishes: [
-          { dishesId: '331', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+          { dishesId: '331', name: 'Молоко', price: 45,
+            imageFood: require('../assets/homeIcon.jpg')
+           },
         ],
       },
       {
         name: 'М`ясо',
+        categoryId: 33,
         image: require('../assets/sunIcon.png'),
         dishes: [
-          { dishesId: '341', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
+          { dishesId: '341', name: 'Свинина', description: '', price: 179,
+            imageFood: require('../assets/homeIcon.jpg')
+           },
         ],
       },
       {
         name: 'Риба',
+        categoryId: 34,
         image: require('../assets/sunIcon.png'),
         dishes: [
-          { dishesId: '351', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 }, 
+          { dishesId: '351', name: 'Карп', description: '', price: 179,
+            imageFood: require('../assets/homeIcon.jpg')
+          }, 
         ],
       },
       {
         name: 'Хліб та випічка',
+        categoryId: 35,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '361', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
@@ -184,6 +198,7 @@ export const products = [
       },
       {
         name: 'Напої',
+        categoryId: 36,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '371', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
@@ -191,6 +206,7 @@ export const products = [
       },
       {
         name: 'Ковбаси та м`ясні вироби',
+        categoryId: 37,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '381', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
@@ -198,6 +214,7 @@ export const products = [
       },
       {
         name: 'Сири',
+        categoryId: 38,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '391', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
@@ -205,6 +222,7 @@ export const products = [
       },
       {
         name: 'Снеки та чипси',
+        categoryId: 39,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '3101', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
@@ -212,6 +230,7 @@ export const products = [
       },
       {
         name: 'Солодощі',
+        categoryId: 310,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '3111', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
@@ -219,6 +238,7 @@ export const products = [
       },
       {
         name: 'Крупи та консерви',
+        categoryId: 311,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '3121', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
@@ -226,6 +246,7 @@ export const products = [
       },
       {
         name: 'Заморожена продукція',
+        categoryId: 312,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '3131', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
@@ -233,6 +254,7 @@ export const products = [
       },
       {
         name: 'Для дому',
+        categoryId: 313,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '3141', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
@@ -240,6 +262,7 @@ export const products = [
       },
       {
         name: 'Гігієна та краса',
+        categoryId: 314,
         image: require('../assets/sunIcon.png'),
         dishes: [
           { dishesId: '3151', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },

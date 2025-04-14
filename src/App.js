@@ -19,7 +19,7 @@ import './components/FormModal/FormModal.css';
 function App() {
   const { tg } = useTelegram();
   const [showWorkTime, setShowWorkTime] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Стейт для відображення модалки
+  const [isModalOpen, setIsModalOpen] = useState(false); // Стейт модалки форми
 
   useEffect(() => {
     tg.ready();
@@ -27,29 +27,29 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {/* 👇 передаємо функцію відкриття модалки у Header */}
+      <Header onOpenModal={() => setIsModalOpen(true)} />
+
       <div>
-{/* Кнопка для відкриття модалки "WorkTime" */}
-<button 
-        className="worktime-button" 
-        onClick={() => setShowWorkTime(true)}
-      >🕒
-      </button>
-      
-      {/* Відображення модалки "WorkTime" */}
-      <WorkTime isOpen={showWorkTime} onClose={() => setShowWorkTime(false)} />
-      
-      {/* Кнопка для відкриття модалки форми */}
-      <button 
-        className="form-floating-button"
-        onClick={() => setIsModalOpen(true)}
-      > 
-      </button>
-      {/* Модальне вікно для форми */}
-      {isModalOpen && <FormModal onClose={() => setIsModalOpen(false)} />}
+        {/* Кнопка для відкриття WorkTime */}
+        <button 
+          className="worktime-button" 
+          onClick={() => setShowWorkTime(true)}
+        >🕒</button>
+
+        <WorkTime isOpen={showWorkTime} onClose={() => setShowWorkTime(false)} />
+
+        {/* Плаваюча кнопка для відкриття модалки форми */}
+        <button 
+          className="form-floating-button"
+          onClick={() => setIsModalOpen(true)}
+        > 
+        </button>
+
+        {/* Модальне вікно форми */}
+        {isModalOpen && <FormModal onClose={() => setIsModalOpen(false)} />}
       </div>
-      
-      
+
       <Routes>
         <Route index element={<Home />} />
         <Route path="zaklad/:id" element={<ZakladHome />} />
@@ -57,8 +57,6 @@ function App() {
         <Route path="food-info/:id/:dishesId" element={<FoodInfo />} />
         <Route path="form" element={<Form />} />
       </Routes>
-      
-      
     </div>
   );
 }

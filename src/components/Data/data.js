@@ -9,13 +9,20 @@ export const places = [
     categories: [
       {
         name: 'Піца',
+        imageFood: require('../assets/homeIcon.jpg'),
         dishes: [
-          { dishesId: '111', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179 },
-          { dishesId: '112', name: 'Ді Парма', description: 'Прошуто, помідори, мікс салату, сир пармезан, сир моцарела, соус томатний', price: 210 },
-          { dishesId: '113', name: 'Чілі Пепероні', description: 'Ковбаса салямі, сир моцарела, перець болгарський, перець чилі', price: 169 },
-          { dishesId: '114', name: 'Кватроформаджі', description: 'Соус вершковий, сир моцарела, сир пармезан, сир дор блю, фета', price: 179 },
-          { dishesId: '115', name: 'Капрічоза', description: 'Шинка, кукурудза, перець болгарський, маслини, печериці, соус томатний, сир моцарела', price: 179 },
-          { dishesId: '116', name: 'Мафія', description: 'Соус томатний, шинка, салямі, печериці, маслини, помідор, сир моцарела', price: 179 },
+          { dishesId: '111', name: 'Тропікана', description: 'Вершковий соус, шинка, кукурудза, манго, сир', price: 179,
+            imageFood: require('../assets/homeIcon.jpg')},
+          { dishesId: '112', name: 'Ді Парма', description: 'Прошуто, помідори, мікс салату, сир пармезан, сир моцарела, соус томатний', price: 210,
+            imageFood: require('../assets/homeIcon.jpg')},
+          { dishesId: '113', name: 'Чілі Пепероні', description: 'Ковбаса салямі, сир моцарела, перець болгарський, перець чилі', price: 169,
+            imageFood: require('../assets/homeIcon.jpg') },
+          { dishesId: '114', name: 'Кватроформаджі', description: 'Соус вершковий, сир моцарела, сир пармезан, сир дор блю, фета', price: 179,
+            imageFood: require('../assets/homeIcon.jpg') },
+          { dishesId: '115', name: 'Капрічоза', description: 'Шинка, кукурудза, перець болгарський, маслини, печериці, соус томатний, сир моцарела', price: 179,
+            imageFood: require('../assets/homeIcon.jpg') },
+          { dishesId: '116', name: 'Мафія', description: 'Соус томатний, шинка, салямі, печериці, маслини, помідор, сир моцарела', price: 179,
+            imageFood: require('../assets/homeIcon.jpg') },
         ],
       },
       {

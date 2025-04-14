@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Header.css";
-import HeaderBar from "../HeaderBar/HeaderBar"; // імпорт компоненту
+import HeaderBar from "../HeaderBar/HeaderBar";
 
-const Header = () => {
+const Header = ({ onOpenModal }) => {
     const [isHeaderBarOpen, setHeaderBarOpen] = useState(false);
 
     const toggleHeaderBar = () => {
@@ -30,7 +30,13 @@ const Header = () => {
                     <span className="cart-count">0</span>
                 </div>
             </header>
-            <HeaderBar isOpen={isHeaderBarOpen} onClose={toggleHeaderBar} />
+
+            {/* Передаємо onOpenModal у HeaderBar */}
+            <HeaderBar 
+                isOpen={isHeaderBarOpen} 
+                onClose={toggleHeaderBar}
+                onOpenModal={onOpenModal}
+            />
         </>
     );
 };

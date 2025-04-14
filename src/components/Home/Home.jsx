@@ -3,6 +3,8 @@ import "./Home.css";
 import ZakladList from "./ZakladList/ZakladList";
 import HomeButtons from "./HomeButtons/HomeButtons";
 import CategoryList from "./CategoryList/CategoryList";
+import DeliveryInfo from "./DeliveryInfo/DeliveryInfo"; 
+import AboutUs from "./AboutUs/AboutUs";
 
 const Home = () => {
     return (
@@ -15,7 +17,9 @@ const Home = () => {
             <HomeButtons />
             <div className="home-list-wrapper">
                 <ZakladList />
-                <CategoryList /> {/* ось тут ми додаємо */}
+                <CategoryList /> 
+                <DeliveryInfo /> 
+                <AboutUs />
             </div>
             
         </div>

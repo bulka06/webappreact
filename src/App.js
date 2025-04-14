@@ -14,24 +14,42 @@ import FormModal from './components/FormModal/FormModal';
 
 import './components/Header/Header.css';
 import './components/WorkTime/WorkTime.css';
+import './components/FormModal/FormModal.css';
 
 function App() {
   const { tg } = useTelegram();
   const [showWorkTime, setShowWorkTime] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Стейт для відображення модалки
 
   useEffect(() => {
     tg.ready();
-  }, []);
+  }, [tg]);
 
   return (
     <div className="App">
       <Header />
-      <button 
+      <div>
+{/* Кнопка для відкриття модалки "WorkTime" */}
+<button 
         className="worktime-button" 
         onClick={() => setShowWorkTime(true)}
-      > 🕒</button>
+      >🕒
+      </button>
+      
+      {/* Відображення модалки "WorkTime" */}
       <WorkTime isOpen={showWorkTime} onClose={() => setShowWorkTime(false)} />
-      <FormModal />
+      
+      {/* Кнопка для відкриття модалки форми */}
+      <button 
+        className="form-floating-button"
+        onClick={() => setIsModalOpen(true)}
+      > 
+      </button>
+      {/* Модальне вікно для форми */}
+      {isModalOpen && <FormModal onClose={() => setIsModalOpen(false)} />}
+      </div>
+      
+      
       <Routes>
         <Route index element={<Home />} />
         <Route path="zaklad/:id" element={<ZakladHome />} />
@@ -39,6 +57,8 @@ function App() {
         <Route path="food-info/:id/:dishesId" element={<FoodInfo />} />
         <Route path="form" element={<Form />} />
       </Routes>
+      
+      
     </div>
   );
 }

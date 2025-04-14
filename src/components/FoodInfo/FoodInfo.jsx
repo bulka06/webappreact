@@ -1,24 +1,27 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { places, products } from '../Data/data'; // Додано імпорт products
+import { places, products } from '../Data/data';
 import './FoodInfo.css';
 
 const FoodInfo = () => {
   const { id, dishesId } = useParams();
 
-  // Спочатку шукаємо у places
+  // Шукаємо в places
   const place = places.find(place => place.id === id);
-
-  // Шукаємо продукт у categories конкретного закладу
   const productFromPlace = place?.categories
     ?.flatMap(category => category.dishes)
     ?.find(dish => dish.dishesId === dishesId);
 
-  // Якщо не знайшли в places, шукаємо у products
-  const productFromProducts = !productFromPlace ? 
-    products.find(product => product.id === id) : null;
+  // Якщо не знайдено — шукаємо в products
+  let productFromProducts = null;
+  if (!productFromPlace) {
+    const product = products.find(product => product.id === id);
+    productFromProducts = product?.categories
+      ?.flatMap(category => category.dishes)
+      ?.find(dish => dish.dishesId === dishesId);
+  }
 
-  // Використовуємо знайдений продукт (або з places, або з products)
+  // Обираємо, що відобразити
   const product = productFromPlace || productFromProducts;
 
   if (!product) {

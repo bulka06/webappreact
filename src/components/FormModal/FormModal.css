@@ -3,19 +3,30 @@
     position: fixed;
     bottom: 80px;
     left: 20px;
-    background-color: #dc3545;
+    background-color: #dc3545; /* Червоний фон */
     color: white;
-    font-size: 22px;
-    padding: 12px 16px;
-    border-radius: 20px 0 20px 0;
+    font-size: 30px; /* Збільшуємо розмір шрифта для значка телефону */
+    width: 60px; /* Ширина кнопки */
+    height: 60px; /* Висота кнопки */
+    border-radius: 50%; /* Кругла форма */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 1001;
     transition: background-color 0.3s ease;
 }
 
+/* Іконка телефону всередині кнопки */
+.form-floating-button::before {
+    content: '\2706'; /* Unicode для значка телефону */
+    font-size: 30px; /* Розмір значка */
+}
+
+/* Кнопка при наведенні */
 .form-floating-button:hover {
-    background-color: #c82333;  /* Тіньова зміна кольору при наведенні */
+    background-color: #c82333; /* Тіньова зміна кольору при наведенні */
 }
 
 /* Оверлей для модалки */
@@ -65,7 +76,7 @@
 }
 
 .close-btn:hover {
-    color: #ff0000;  /* Зміна кольору при наведенні */
+    color: #ff0000; /* Зміна кольору при наведенні */
 }
 
 /* Вхідні поля */
@@ -80,7 +91,7 @@
 }
 
 .form-input:focus {
-    border-color: #dc3545;  /* Колір бордеру при фокусі */
+    border-color: #dc3545; /* Колір бордеру при фокусі */
     outline: none;
 }
 
@@ -98,7 +109,7 @@
 }
 
 .form-submit-btn:hover {
-    background-color: #c82333;  /* Тіньова зміна кольору при наведенні */
+    background-color: #c82333; /* Тіньова зміна кольору при наведенні */
 }
 
 .form-submit-btn:disabled {

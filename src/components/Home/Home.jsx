@@ -11,6 +11,8 @@ import AboutUs from "./AboutUs/AboutUs";
 const Home = () => {
     const deliveryRef = useRef(null);
     const aboutUsRef = useRef(null);
+    const zakladRef = useRef(null);      
+    const categoryRef = useRef(null); 
     const location = useLocation();
 
     useEffect(() => {
@@ -28,10 +30,19 @@ const Home = () => {
                     <h1>Доставка вашої улюбленої їжі</h1>
                 </div>
             </div>
-            <HomeButtons />
+            <HomeButtons
+                onScrollToZaklads={() => zakladRef.current?.scrollIntoView({ behavior: "smooth" })}
+                onScrollToCategories={() => categoryRef.current?.scrollIntoView({ behavior: "smooth" })}
+            />
+
             <div className="home-list-wrapper">
-                <ZakladList />
-                <CategoryList /> 
+            <div ref={zakladRef} className="scroll-target">
+             <ZakladList />
+            </div>
+            <div ref={categoryRef} className="scroll-target">
+             <CategoryList />
+            </div>
+            
                 <div ref={deliveryRef} id="delivery-info">
                     <DeliveryInfo />
                 </div>

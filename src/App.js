@@ -21,7 +21,7 @@ import './components/FormModal/FormModal.css';
 function App() {
   const { tg } = useTelegram();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isBaskModalOpen, setIsBaskModalOpen] = useState(false); // Додаємо стан для модалки кошика
+  const [setIsBaskModalOpen] = useState(false); // Додаємо стан для модалки кошика
 
   useEffect(() => {
     tg.ready();
@@ -32,7 +32,7 @@ function App() {
       <BaskProvider>
         <Header onOpenModal={() => setIsModalOpen(true)} />
 
-        <div>
+        <div className="floating-buttons-container">
           {/* Кнопка відкриття кошика */}
           <BaskButton onClick={() => setIsBaskModalOpen(true)} />
           <button
@@ -40,11 +40,8 @@ function App() {
             onClick={() => setIsModalOpen(true)}
           >
           </button>
+
           {isModalOpen && <FormModal onClose={() => setIsModalOpen(false)} />}
-          
-          {/* Кнопка відкриття кошика */}
-          <BaskButton onClick={() => setIsBaskModalOpen(true)} />
-          
         </div>
 
         <Routes>

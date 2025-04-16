@@ -36,7 +36,7 @@ const FoodInfo = () => {
 
   return (
     <div className="food-info">
-      {/* Зображення продукту */}
+    
       {product.imageFood && (
         <img src={product.imageFood} alt={product.name} className="food-info-image" />
       )}

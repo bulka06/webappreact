@@ -1,23 +1,33 @@
 import React from 'react';
 import './BaskButton.css';
 import { useBask } from '../../Basket/BaskContext/BaskContext';
-import { useNavigate } from 'react-router-dom'; // імпортуємо навігацію
+import { useNavigate } from 'react-router-dom';
+import { FiShoppingCart } from 'react-icons/fi';
 
 const BaskButton = () => {
   const { baskItems } = useBask();
-  const navigate = useNavigate(); // ініціалізуємо navigate
-  
-  // Якщо кошик порожній — не показуємо кнопку
+  const navigate = useNavigate();
+
   if (!baskItems || baskItems.length === 0) return null;
 
   const handleClick = () => {
-    navigate('/bask'); // переходимо на сторінку кошика
+    navigate('/bask');
   };
 
+  const totalPrice = baskItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
+
   return (
-    <button className="bask-button" onClick={handleClick}>
-      🛒 {baskItems.length}
-    </button>
+    <div className="bask-button-new" onClick={handleClick}>
+      <div className="top-row">
+        <FiShoppingCart className="cart-icon" />
+        <span className="price">{totalPrice} ₴</span>
+      </div>
+
+    </div>
   );
 };
 

@@ -25,9 +25,26 @@ export const BaskProvider = ({ children }) => {
   const removeFromBask = (id) => {
     setBaskItems((prev) => prev.filter(item => item.id !== id));
   };
-
+  const increaseQuantity = (id) => {
+    setBaskItems(prev =>
+      prev.map(item =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+  
+  const decreaseQuantity = (id) => {
+    setBaskItems(prev =>
+      prev.map(item =>
+        item.id === id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
+  };
+  
   return (
-    <BaskContext.Provider value={{ baskItems, addToBask, removeFromBask }}>
+    <BaskContext.Provider value={{ baskItems, addToBask, removeFromBask, increaseQuantity, decreaseQuantity }}>
       {children}
     </BaskContext.Provider>
   );

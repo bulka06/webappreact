@@ -26,8 +26,8 @@ const Header = ({ onOpenModal }) => {
                     </div>
                 </div>
                 <div className="right">
-                    <span className="icon">🛒</span>
-                    <span className="cart-count">0</span>
+                    <span className="icon"></span>
+                    <span className="cart-count"></span>
                 </div>
             </header>
 

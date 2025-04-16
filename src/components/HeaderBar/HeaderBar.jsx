@@ -32,7 +32,14 @@ const HeaderBar = ({ isOpen, onClose, onOpenModal }) => {
       <div className={`sidebar ${isOpen ? "show" : ""}`}>
         <button className="close-btn" onClick={onClose}>×</button>
 
-        <button className="menu-btn" onClick={() => { navigate("/"); onClose(); }}>
+        <button
+          className="menu-btn"
+          onClick={() => {
+          navigate("/");
+          window.scrollTo({ top: 0, behavior: "smooth" }); // ← прокрутка вгору
+          onClose();
+          }}
+            >
           Головна
         </button>
         <button className="menu-btn" onClick={handleScrollToDelivery}>

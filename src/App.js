@@ -12,7 +12,7 @@ import ShopHome from './components/ZakladHome/ShopHome/ShopHome';
 import FoodInfo from './components/FoodInfo/FoodInfo';
 import FormModal from './components/FormModal/FormModal';
 import BaskButton from './components/Basket/BaskButton/BaskButton';
-import BaskModal from './components/Basket/BaskModal/BaskModal'; // Додайте імпорт
+import BaskPage from './components/Basket/BaskPage/BaskPage';
 
 import './components/Header/Header.css';
 import './components/WorkTime/WorkTime.css';
@@ -33,6 +33,8 @@ function App() {
         <Header onOpenModal={() => setIsModalOpen(true)} />
 
         <div>
+          {/* Кнопка відкриття кошика */}
+          <BaskButton onClick={() => setIsBaskModalOpen(true)} />
           <button
             className="form-floating-button"
             onClick={() => setIsModalOpen(true)}
@@ -43,8 +45,6 @@ function App() {
           {/* Кнопка відкриття кошика */}
           <BaskButton onClick={() => setIsBaskModalOpen(true)} />
           
-          {/* Модальне вікно кошика */}
-          {isBaskModalOpen && <BaskModal onClose={() => setIsBaskModalOpen(false)} />}
         </div>
 
         <Routes>
@@ -52,6 +52,7 @@ function App() {
           <Route path="zaklad/:id" element={<ZakladHome />} />
           <Route path="shop/:id" element={<ShopHome />} />
           <Route path="food-info/:id/:dishesId" element={<FoodInfo />} />
+          <Route path="/bask" element={<BaskPage />} />
           <Route path="form" element={<Form />} />
         </Routes>
       </BaskProvider>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useTelegram } from '../hooks/useTelegram';
+import useTelegram from '../hooks/useTelegram';
+
 import { useBask } from '../Basket/BaskContext/BaskContext';
 
 const Form = () => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import useTelegram from '../hooks/useTelegram';
-
 import { useBask } from '../Basket/BaskContext/BaskContext';
+import './Form.css'; // Підключення CSS
 
 const Form = () => {
-  const { tg } = useTelegram(); // кастомний хук
+  const { tg } = useTelegram();
   const { baskItems } = useBask();
 
   const [form, setForm] = useState({
@@ -41,17 +41,54 @@ const Form = () => {
   };
 
   return (
-    <div className="form">
+    <div className="form-container">
       <h2>Оформлення замовлення</h2>
-      <input name="name" placeholder="Ім'я" value={form.name} onChange={handleChange} />
-      <input name="lastname" placeholder="Прізвище" value={form.lastname} onChange={handleChange} />
-      <input name="phone" placeholder="Телефон" value={form.phone} onChange={handleChange} />
-      <input name="city" placeholder="Місто" value={form.city} onChange={handleChange} />
-      <input name="street" placeholder="Вулиця" value={form.street} onChange={handleChange} />
-      <input name="email" placeholder="Email" value={form.email} onChange={handleChange} />
-      <input name="time" placeholder="Година доставки" value={form.time} onChange={handleChange} />
+
+      <div className="form-group">
+        <label>Ім'я</label>
+        <input name="name" value={form.name} onChange={handleChange} />
+      </div>
+
+      <div className="form-group">
+        <label>Прізвище</label>
+        <input name="lastname" value={form.lastname} onChange={handleChange} />
+      </div>
+
+      <div className="form-group">
+        <label>Телефон</label>
+        <input name="phone" value={form.phone} onChange={handleChange} />
+      </div>
+
+      <div className="form-group">
+        <label>Місто</label>
+        <input name="city" value={form.city} onChange={handleChange} />
+      </div>
+
+      <div className="form-group">
+        <label>Вулиця</label>
+        <input name="street" value={form.street} onChange={handleChange} />
+      </div>
+
+      <div className="form-group">
+        <label>Email</label>
+        <input name="email" value={form.email} onChange={handleChange} />
+      </div>
+
+      <div className="form-group">
+        <label>Година доставки</label>
+        <input name="time" value={form.time} onChange={handleChange} />
+      </div>
+
+      <div className="form-group">
+        <label>Спосіб оплати</label>
+        <select name="paymentMethod" value={form.paymentMethod} onChange={handleChange}>
+          <option value="Готівка">Готівка</option>
+          <option value="Карта">Карта</option>
+        </select>
+      </div>
 
       <button
+        className="submit-button"
         onClick={onSendData}
         disabled={!form.name || !form.phone || !form.city || !form.street}
       >

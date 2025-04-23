@@ -1,24 +1,10 @@
-const tg = window.Telegram?.WebApp; 
-
-const useTelegram = () => {
-    const onClose = () =>  {
-        if (tg) {
-            tg.close();
-        }
-    };
-
-    const onToggleButton = () =>  {
-        if (tg?.MainButton) {
-            tg.MainButton.isVisible ? tg.MainButton.hide() : tg.MainButton.show();
-        }
-    };
-
+export const useTelegram = () => {
+    const tg = window.Telegram.WebApp;
+  
     return {
-        onClose,
-        onToggleButton,
-        tg,
-        user: tg?.initDataUnsafe?.user,
+      tg,
+      user: tg?.initDataUnsafe?.user,
+      queryId: tg?.initDataUnsafe?.query_id
     };
-};
-
-export default useTelegram; // Додаємо експорт за замовчуванням
+  };
+  

@@ -1,129 +1,61 @@
 import React, { useState } from 'react';
+import { useTelegram } from '../hooks/useTelegram';
 import { useBask } from '../Basket/BaskContext/BaskContext';
-import './Form.css';
 
 const Form = () => {
-  const [name, setName] = useState('');
-  const [lastname, setLastName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [city, setCity] = useState('');
-  const [street, setStreet] = useState('');
-  const [paymentMethod, setPaymentMethod] = useState('Готівка');
-  const [email, setEmail] = useState('');
-  const [time, setTime] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const { tg } = useTelegram(); // кастомний хук
   const { baskItems } = useBask();
+
+  const [form, setForm] = useState({
+    name: '',
+    lastname: '',
+    phone: '',
+    city: '',
+    street: '',
+    paymentMethod: 'Готівка',
+    email: '',
+    time: ''
+  });
 
   const getTotal = () => {
     return baskItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
   };
 
+  const handleChange = (e) => {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   const onSendData = () => {
     const data = {
-      name,
-      lastname,
-      phone,
-      city,
-      street,
-      paymentMethod,
-      email,
-      time,
+      ...form,
       baskItems,
+      total: getTotal()
     };
 
-    console.log("Дані надіслано:", data);
-
-    // Надсилання в Telegram WebApp
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.sendData(JSON.stringify(data));
+    if (tg && tg.sendData) {
+      tg.sendData(JSON.stringify(data));
+    } else {
+      alert("Telegram WebApp не ініціалізовано. Відкрий через Telegram.");
     }
-
-    setIsSubmitted(true);
   };
 
   return (
-    <div className="form-container">
+    <div className="form">
       <h2>Оформлення замовлення</h2>
-
-      <div className="form-group">
-        <label>Ім'я</label>
-        <input type="text" placeholder="Ваше ім'я" value={name} onChange={e => setName(e.target.value)} />
-      </div>
-
-      <div className="form-group">
-        <label>Прізвище</label>
-        <input type="text" placeholder="Ваше прізвище" value={lastname} onChange={e => setLastName(e.target.value)} />
-      </div>
-
-      <div className="form-group">
-        <label>Номер телефону</label>
-        <input type="tel" placeholder="+380..." value={phone} onChange={e => setPhone(e.target.value)} />
-      </div>
-
-      <div className="form-group">
-        <label>Місто / Село</label>
-        <input type="text" value={city} onChange={e => setCity(e.target.value)} />
-      </div>
-
-      <div className="form-group">
-        <label>Адреса доставки</label>
-        <input type="text" placeholder="Назва вулиці та номер будинку" value={street} onChange={e => setStreet(e.target.value)} />
-      </div>
-
-      <div className="form-group">
-        <label>Спосіб оплати</label>
-        <select value={paymentMethod} onChange={e => setPaymentMethod(e.target.value)}>
-          <option value="Готівка">Готівка</option>
-          <option value="Картка">Картка</option>
-        </select>
-      </div>
-
-      <div className="form-group">
-        <label>Електронна пошта (необов'язково)</label>
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-      </div>
-
-      <div className="form-group">
-        <label>Година доставки (необов'язково)</label>
-        <input type="text" value={time} onChange={e => setTime(e.target.value)} />
-      </div>
-
-      {/* Замовлення */}
-      <div className="bask-container-form">
-        <h3>Ваше замовлення</h3>
-        {baskItems.length === 0 ? (
-          <p>Кошик порожній</p>
-        ) : (
-          <>
-            <div className="bask-items">
-              {baskItems.map(item => (
-                <div key={item.id} className="bask-card">
-                  <div className="bask-card-body">
-                    <p><strong>{item.name}</strong></p>
-                    <p>Ціна: {item.price.toFixed(2)}₴</p>
-                    <p>Кількість: {item.quantity}</p>
-                    <p>Сума: {(item.price * item.quantity).toFixed(2)}₴</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="bask-summary">
-              <p><strong>Сума замовлення:</strong> {getTotal()}₴</p>
-            </div>
-          </>
-        )}
-      </div>
+      <input name="name" placeholder="Ім'я" value={form.name} onChange={handleChange} />
+      <input name="lastname" placeholder="Прізвище" value={form.lastname} onChange={handleChange} />
+      <input name="phone" placeholder="Телефон" value={form.phone} onChange={handleChange} />
+      <input name="city" placeholder="Місто" value={form.city} onChange={handleChange} />
+      <input name="street" placeholder="Вулиця" value={form.street} onChange={handleChange} />
+      <input name="email" placeholder="Email" value={form.email} onChange={handleChange} />
+      <input name="time" placeholder="Година доставки" value={form.time} onChange={handleChange} />
 
       <button
-        className="submit-button"
         onClick={onSendData}
-        disabled={!name || !phone || !city || !street}
+        disabled={!form.name || !form.phone || !form.city || !form.street}
       >
         Підтвердити замовлення
       </button>
-
-      {isSubmitted && <p className="success-msg">✅ Замовлення прийнято!</p>}
     </div>
   );
 };

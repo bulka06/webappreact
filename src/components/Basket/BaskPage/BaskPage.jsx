@@ -1,5 +1,7 @@
 import React from 'react';
 import { useBask } from '../BaskContext/BaskContext';
+import { useNavigate } from 'react-router-dom';
+
 import './BaskPage.css';
 
 const BaskPage = () => {
@@ -10,6 +12,7 @@ const BaskPage = () => {
     decreaseQuantity
   } = useBask();
 
+  const navigate = useNavigate();
   const getTotal = () => {
     return baskItems
       .reduce((sum, item) => sum + item.price * item.quantity, 0)
@@ -56,6 +59,9 @@ const BaskPage = () => {
             <p><strong>Проміжний підсумок:</strong> {getTotal()}₴</p>
             <p><strong>Доставка:</strong> Єдиний тариф</p>
             <small>Варіанти доставки будуть оновлені під час оформлення замовлення.</small>
+            <button className="checkout-btn" onClick={() => navigate('/form')}>
+            Перейти до оформлення
+            </button>
           </div>
         </>
       )}

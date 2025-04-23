@@ -87,4 +87,17 @@ h1 {
   padding: 0.3rem;
   background-color: #fff;
 }
+.checkout-btn {
+  background-color: #e60023;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.checkout-btn:hover {
+  background-color: #c9001d;
+}
 

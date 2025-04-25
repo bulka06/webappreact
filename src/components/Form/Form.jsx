@@ -26,17 +26,30 @@ const Form = () => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const onSendData = () => {
+  const onSendData = async () => {
     const data = {
       ...form,
       baskItems,
-      total: getTotal()
+      total: getTotal(),
     };
-
-    if (tg && tg.sendData) {
-      tg.sendData(JSON.stringify(data));
-    } else {
-      alert("Telegram WebApp не ініціалізовано. Відкрий через Telegram.");
+  
+    try {
+      const response = await fetch('http://localhost:3000/api/order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (response.ok) {
+        alert('Замовлення надіслано успішно!');
+      } else {
+        alert('Помилка при надсиланні замовлення');
+      }
+    } catch (error) {
+      console.error('Помилка:', error);
+      alert('Сервер недоступний');
     }
   };
 
@@ -90,7 +103,7 @@ const Form = () => {
       <button
         className="submit-button"
         onClick={onSendData}
-        disabled={!form.name || !form.phone || !form.city || !form.street}
+        // disabled={!form.name || !form.phone || !form.city || !form.street}
       >
         Підтвердити замовлення
       </button>

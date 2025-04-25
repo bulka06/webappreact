@@ -30,26 +30,26 @@ const Form = () => {
     const data = {
       ...form,
       baskItems,
-      total: getTotal(),
+      total: getTotal()
     };
   
     try {
-      const response = await fetch('http://localhost:3000/api/order', {
+      const response = await fetch('https://9f24-91-245-98-16.ngrok-free.app/web-data', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
       });
   
       if (response.ok) {
-        alert('Замовлення надіслано успішно!');
+        alert('✅ Замовлення успішно надіслано!');
       } else {
-        alert('Помилка при надсиланні замовлення');
+        alert('❌ Помилка при надсиланні замовлення!');
       }
     } catch (error) {
-      console.error('Помилка:', error);
-      alert('Сервер недоступний');
+      console.error('Fetch error:', error);
+      alert('⚠️ Сталася помилка під час надсилання.');
     }
   };
 

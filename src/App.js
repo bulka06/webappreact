@@ -8,7 +8,6 @@ import { BaskProvider } from './components/Basket/BaskContext/BaskContext';
 import Home from './components/Home/Home';
 import Form from './components/Form/Form';
 import ZakladHome from './components/ZakladHome/ZakladHome';
-import ShopHome from './components/ZakladHome/ShopHome/ShopHome';
 import FoodInfo from './components/FoodInfo/FoodInfo';
 import FormModal from './components/FormModal/FormModal';
 import BaskButton from './components/Basket/BaskButton/BaskButton';
@@ -47,7 +46,6 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="zaklad/:id" element={<ZakladHome />} />
-          <Route path="shop/:id" element={<ShopHome />} />
           <Route path="food-info/:id/:dishesId" element={<FoodInfo />} />
           <Route path="/bask" element={<BaskPage />} />
           <Route path="form" element={<Form />} />

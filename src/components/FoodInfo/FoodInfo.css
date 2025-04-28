@@ -39,9 +39,15 @@
 
 .similar-products-list {
   display: flex;
-  flex-direction: column; /* В один стовпчик */
-  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Розподіляє елементи рівномірно */
+  gap: 16px; /* Простір між елементами */
 }
+
+.similar-products-list > * {
+  flex-basis: calc(50% - 8px); /* Кожен елемент займає половину рядка */
+}
+
 
 /* Для трохи більших екранів (планшетів) */
 @media (min-width: 600px) {

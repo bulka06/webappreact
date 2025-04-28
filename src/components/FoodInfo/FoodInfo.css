@@ -1,6 +1,6 @@
 .food-info {
-  padding: 100px 20px 20px;
-  max-width: 600px;
+  padding: 20px;
+  max-width: 100%;
   margin: 0 auto;
   font-family: sans-serif;
   background-color: #fff;
@@ -11,35 +11,52 @@
 
 .food-info-image {
   width: 100%;
-  max-height: 300px;
+  max-height: 200px;
   object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .food-info h2 {
-  margin-bottom: 10px;
-  font-size: 24px;
+  margin-bottom: 8px;
+  font-size: 22px;
 }
 
 .food-info p {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-size: 16px;
   color: #444;
 }
 
 .food-info strong {
-  font-size: 20px;
+  font-size: 18px;
   color: #111;
 }
 
 .similar-products {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .similar-products-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column; /* В один стовпчик */
+  gap: 12px;
 }
 
+/* Для трохи більших екранів (планшетів) */
+@media (min-width: 600px) {
+  .food-info {
+    padding: 40px 20px 20px;
+    max-width: 600px;
+  }
+
+  .food-info-image {
+    max-height: 300px;
+  }
+
+  .similar-products-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}

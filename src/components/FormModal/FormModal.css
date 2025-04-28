@@ -60,20 +60,24 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    color: black; /* Додаємо явний темний колір тексту */
+    font-weight: bold;
+    font-size: 20px;
 }
 
 /* Кнопка закриття */
 .close-btn {
     background: none;
     border: none;
-    font-size: 24px;
-    color: #333;
+    font-size: 18px;
+    color: #000 !important; /* Чорний колір примусово */
     cursor: pointer;
     position: absolute;
     top: 10px;
     right: 10px;
     transition: color 0.3s ease;
 }
+
 
 .close-btn:hover {
     color: #ff0000; /* Зміна кольору при наведенні */
@@ -87,6 +91,7 @@
     border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 16px;
+    color: #333; /* Додаємо чорний колір тексту */
     transition: border 0.3s ease;
 }
 
@@ -94,7 +99,9 @@
     border-color: #dc3545; /* Колір бордеру при фокусі */
     outline: none;
 }
-
+.form-input::placeholder {
+    color: #999;
+}
 /* Кнопка відправки */
 .form-submit-btn {
     width: 100%;
@@ -107,6 +114,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 
 .form-submit-btn:hover {
     background-color: #c82333; /* Тіньова зміна кольору при наведенні */

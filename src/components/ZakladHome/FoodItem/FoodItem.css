@@ -1,15 +1,14 @@
 /* Контейнер картки їжі */
 .food-card {
-  width: 170px; /* фіксована ширина для картки, щоб розмістити дві на екрані 380px */
+  width: 170px; /* Фіксована ширина для картки */
   margin-bottom: 15px;
-  flex: 0 0 auto; /* запобігає стисканню карток */
+  flex: 0 0 auto; /* Запобігає стисканню карток */
   box-sizing: border-box;
   border: 1px solid #ddd;
   padding: 12px;
   border-radius: 12px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,35 +36,35 @@
   font-size: 14px;
   color: #666;
   margin-bottom: 8px;
+  text-align: justify; /* Вирівнюємо текст за шириною */
 }
 
-/* Ціна */
-.food-card strong {
-  font-size: 16px;
-  color: #111;
-  margin-bottom: 10px;
-  display: block;
-}
-
-/* Блок дій (Деталі + кнопка) */
+/* Блок дій (Деталі + ціна + кнопка) */
 .food-card-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Розподіл елементів */
   align-items: center;
   width: 100%;
   margin-top: auto;
 }
 
-/* Посилання на деталі */
+/* Ціна біля кнопки "+" */
+.food-card-price {
+  font-size: 16px;
+  color: #111;
+  margin-right: auto; /* Зміщує ліворуч */
+}
+
+/* Посилання на деталі (на місці ціни) */
 .food-info-link {
   font-size: 14px;
-  color: #007bff;
+  color: #000000;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .food-info-link:hover {
-  color: #0056b3;
+  color: #000000;
 }
 
 /* Кнопка додавання в кошик */
@@ -82,19 +81,4 @@
 
 .add-to-bask-btn:hover {
   background-color: #8f0000;
-}
-
-.similar-products-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* розподіляє картки по краях */
-  padding: 10px;
-  width: 100%;
-}
-
-/* Для планшетів (від 600px) */
-@media (min-width: 600px) {
-  .food-card {
-    width: calc(33.333% - 10px);
-  }
 }

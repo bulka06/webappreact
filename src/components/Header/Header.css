@@ -1,87 +1,101 @@
 .header-container {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #111; /* Темніший фон для преміального вигляду */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    height: 60px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* Глибша тінь */
-  }
-  
-  .main-content {
-    padding-top: 60px;
-  }
-  
-  .left, .center, .right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .icon {
-    font-size: 24px;
-    cursor: pointer;
-    color: white;
-    transition: color 0.3s;
-  }
-  
-  .icon:hover {
-    color: #ff4c4c; /* Червоний при наведенні */
-  }
-  
-  .brand-text {
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 1.2;
-  }
-  
-  .cart-count {
-    background-color: #ff4c4c; /* Яскравіший червоний */
-    color: white;
-    font-size: 12px;
-    border-radius: 50%;
-    padding: 3px 7px;
-    margin-left: 6px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 20px;
-    min-height: 20px;
-    font-weight: bold;
-  }
-  
-  .burger-icon {
-    width: 30px;
-    height: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 1001;
-  }
-  
-  .burger-icon span {
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-  
-  .burger-icon.open span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-  }
-  
-  .burger-icon.open span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .burger-icon.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-  
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #111; /* Темний фон для преміального вигляду */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  height: 60px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* Глибші тіні */
+}
+
+.main-content {
+  padding-top: 60px; /* Відступ для контенту */
+}
+
+.left, .center, .right {
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  gap: 16px; /* Відстань між елементами */
+}
+
+.burger-icon {
+  width: 30px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.burger-icon span {
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.burger-icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px); /* Ефект відкриття */
+}
+
+.burger-icon.open span:nth-child(2) {
+  opacity: 0; /* Приховує лінію при відкритті */
+}
+
+.burger-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px); /* Ефект відкриття */
+}
+
+.back-icon {
+  font-size: 24px; /* Розмір стрілки */
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.back-icon:hover {
+  color: #ff4c4c; /* Червоний колір при наведенні */
+}
+
+.cart-icon {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+  color: #ff4c4c; /* Червоний колір при наведенні */
+}
+
+.brand-text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.cart-count {
+  background-color: #ff4c4c; /* Яскравий червоний */
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 3px 7px;
+  margin-left: 6px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+  min-height: 20px;
+  font-weight: bold;
+}

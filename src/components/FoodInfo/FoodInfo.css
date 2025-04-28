@@ -1,68 +1,75 @@
 .food-info {
-  padding: 20px;
+  padding: 24px;
   max-width: 100%;
   margin: 0 auto;
-  font-family: sans-serif;
+  font-family: 'Arial', sans-serif; /* Естетичний шрифт */
   background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px; /* Закруглення для приємного вигляду */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тіні для об’єму */
   text-align: center;
 }
 
 .food-info-image {
   width: 100%;
-  max-height: 200px;
-  object-fit: cover;
+  max-height: 250px; /* Адаптивне відображення */
+  object-fit: cover; /* Зберігає пропорції */
   border-radius: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .food-info h2 {
-  margin-bottom: 8px;
-  font-size: 22px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
 }
 
 .food-info p {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-size: 16px;
-  color: #444;
+  line-height: 1.5; /* Зручність читання */
+  color: #555;
+  text-align: justify; /* Вирівнювання по ширині */
 }
 
 .food-info strong {
-  font-size: 18px;
+  font-size: 20px;
   color: #111;
+  font-weight: bold;
 }
 
 .similar-products {
   margin-top: 30px;
+  padding: 16px;
+  background-color: #f9f9f9; /* Легкий фон для виділення секції */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .similar-products-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* Розподіляє елементи рівномірно */
-  gap: 16px; /* Простір між елементами */
+  flex-wrap: wrap; /* Адаптивне розташування елементів */
+  justify-content: space-between; /* Простір між елементами */
+  gap: 20px; /* Відстань між блоками */
 }
 
 .similar-products-list > * {
-  flex-basis: calc(50% - 8px); /* Кожен елемент займає половину рядка */
+  flex-basis: calc(50% - 10px); /* Кожен елемент займає 50% ширини */
+  text-align: center;
 }
 
-
-/* Для трохи більших екранів (планшетів) */
+/* Для планшетів і більших екранів */
 @media (min-width: 600px) {
   .food-info {
-    padding: 40px 20px 20px;
-    max-width: 600px;
+    padding: 40px 24px;
+    max-width: 640px; /* Оптимізація для великих екранів */
   }
 
   .food-info-image {
-    max-height: 300px;
+    max-height: 320px; /* Більше місця для зображення */
   }
 
   .similar-products-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
+    gap: 24px; /* Збільшений простір між товарами */
   }
 }

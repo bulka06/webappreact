@@ -1,34 +1,49 @@
+/* Глобальний стиль для всього сайту */
+body {
+  background-color: white; /* Білий фон для всього сайту */
+  color: #000; /* Чорний текст для контрасту */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Універсальний шрифт */
+  box-sizing: border-box;
+}
+
+/* Основний контейнер сторінки */
 .zaklad-home {
   padding: 10px;
   padding-top: 80px; /* Додаємо відступ зверху, щоб уникнути перекриття з хедером */
   box-sizing: border-box;
+  background-color: white; /* Переконаємося, що фон цього блоку теж білий */
 }
 
 h2 {
   text-align: center;
+  color: #333; /* Темний колір тексту */
 }
 
 p {
   font-size: 1rem;
   line-height: 1.5;
   text-align: center;
+  color: #555; /* Трохи світліший текст для легшого читання */
 }
 
+/* Селектор категорій */
 .sticky-category-selector {
   position: -webkit-sticky; /* Для старих версій браузерів */
   position: sticky;
-  top: 60px; /* Це відстань від верху екрану, де буде закріплений селект */
-  background-color: white; /* Фон для селекту */
-  z-index: 10; /* Це необхідно, щоб селект залишався поверх контенту */
+  top: 60px; /* Відступ від верхнього краю */
+  background-color: white; /* Білий фон для селектора */
+  z-index: 10; /* Переконаємося, що селект залишатиметься поверх */
   margin-bottom: 20px;
   padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкий ефект тіні */
   text-align: center;
 }
 
 .dishes {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* 2 елементи на рядок */
   gap: 10px;
 }
 
@@ -40,31 +55,35 @@ p {
 .food-card {
   max-width: 160px;
   margin: 0 auto;
+  background-color: white; /* Переконаємося, що картки мають білий фон */
+  border: 1px solid #ddd; /* Легка рамка навколо картки */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тінь для карток */
 }
 
 @media (min-width: 600px) {
   .dishes {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 768px) {
   .dishes {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
   }
 }
 
 @media (min-width: 1024px) {
   .dishes {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 }
 
 @media (min-width: 1440px) {
   .dishes {
-      grid-template-columns: repeat(5, 1fr);
-      gap: 25px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
   }
 }

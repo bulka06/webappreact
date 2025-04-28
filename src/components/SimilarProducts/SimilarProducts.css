@@ -1,6 +1,6 @@
 /* Контейнер картки їжі */
 .food-card {
-    flex: 0 0 calc(50% - 10px); /* Дві картки в ряд */
+    flex: 0 0 calc(50% - 30px); /* Дві картки в ряд */
     box-sizing: border-box;
     border: 1px solid #ddd;
     padding: 12px;

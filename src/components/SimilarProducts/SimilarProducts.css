@@ -86,11 +86,16 @@
   
   .similar-products-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* розподіляє картки по краях */
-    padding: 10px;
-    width: 100%;
+    flex-wrap: wrap; /* Allows items to wrap to the next row */
+    gap: 20px; /* Space between items */
+    justify-content: space-between; /* Distribute space evenly */
   }
+  
+  .similar-products-list > div {
+    flex: 1 1 calc(50% - 10px); /* Each item takes up 50% of the width minus margin */
+    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+  }
+  
   
   /* Для планшетів (від 600px) */
   @media (min-width: 600px) {

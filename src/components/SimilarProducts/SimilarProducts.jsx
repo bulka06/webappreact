@@ -42,3 +42,4 @@ const SimilarProducts = ({ product, id }) => {
 };
 
 export default SimilarProducts;
+ 

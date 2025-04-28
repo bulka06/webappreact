@@ -1,6 +1,6 @@
 /* Контейнер картки їжі */
 .food-card {
-  flex: 0 0 calc(50% - 10px); /* 2 картки в ряд на телефоні */
+  flex: 0 0 calc(50% - 10px); /* Дві картки в ряд */
   box-sizing: border-box;
   border: 1px solid #ddd;
   padding: 12px;
@@ -14,6 +14,7 @@
   text-align: center;
 }
 
+
 /* Зображення їжі */
 .food-image {
   width: 100%;
@@ -25,7 +26,7 @@
 
 /* Назва страви */
 .food-card h4 {
-  font-size: 18px;
+  font-size: 16px;
   margin: 8px 0 4px;
   color: #333;
 }
@@ -37,7 +38,7 @@
   margin-bottom: 8px;
 }
 
-/* Ціна страви */
+/* Ціна */
 .food-card strong {
   font-size: 16px;
   color: #111;
@@ -45,7 +46,7 @@
   display: block;
 }
 
-/* Блок дій (посилання і кнопка) */
+/* Блок дій (Деталі + кнопка) */
 .food-card-actions {
   display: flex;
   justify-content: space-between;
@@ -54,7 +55,7 @@
   margin-top: auto;
 }
 
-/* Посилання "Деталі" */
+/* Посилання на деталі */
 .food-info-link {
   font-size: 14px;
   color: #007bff;
@@ -66,9 +67,9 @@
   color: #0056b3;
 }
 
-/* Кнопка додавання до кошика */
+/* Кнопка додавання в кошик */
 .add-to-bask-btn {
-  background-color: #00a859;
+  background-color: #a80000;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -79,10 +80,10 @@
 }
 
 .add-to-bask-btn:hover {
-  background-color: #008f4c;
+  background-color: #8f0000;
 }
 
-/* Контейнер списку товарів (за бажанням якщо потрібно стилізувати) */
+
 .similar-products-list {
   display: flex;
   flex-wrap: wrap;
@@ -91,16 +92,10 @@
   padding: 10px;
 }
 
-/* Адаптив для планшетів */
+/* Для планшетів (від 600px) */
 @media (min-width: 600px) {
   .food-card {
-    flex: 0 0 calc(33.333% - 10px); /* 3 картки в ряд на планшеті */
+    flex: 0 0 calc(33.333% - 10px); /* 3 картки в ряд */
   }
 }
 
-/* Адаптив для дуже маленьких екранів */
-@media (max-width: 360px) {
-  .food-card {
-    flex: 0 0 100%; /* 1 картка в ряд */
-  }
-}

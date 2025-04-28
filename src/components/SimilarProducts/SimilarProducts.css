@@ -1,32 +1,21 @@
-.similar-products {
-    margin-top: 40px;
-    padding: 0 10px;
-  }
-  
-  .similar-products-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center; /* Центруємо картки */
-  }
-  
-  /* Одна картка продукту */
-  .food-card {
-    flex: 0 0 calc(50% - 12px); /* Дві картки в ряд з відступом */
-    max-width: 160px; /* Обмеження максимальної ширини */
+/* Контейнер картки їжі */
+.food-card {
+    flex: 0 0 calc(50% - 10px); /* Дві картки в ряд */
+    box-sizing: border-box;
     border: 1px solid #ddd;
     padding: 12px;
     border-radius: 12px;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-sizing: border-box;
   }
   
-  /* Стиль для зображення їжі */
+  
+  /* Зображення їжі */
   .food-image {
     width: 100%;
     height: 140px;
@@ -35,27 +24,79 @@
     margin-bottom: 10px;
   }
   
-  /* Дії під карткою */
-  .food-card-actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+  /* Назва страви */
+  .food-card h4 {
+    font-size: 16px;
+    margin: 8px 0 4px;
+    color: #333;
   }
   
-  /* Кнопка додати в кошик */
+  /* Опис страви */
+  .food-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  /* Ціна */
+  .food-card strong {
+    font-size: 16px;
+    color: #111;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  /* Блок дій (Деталі + кнопка) */
+  .food-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  /* Посилання на деталі */
+  .food-info-link {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .food-info-link:hover {
+    color: #0056b3;
+  }
+  
+  /* Кнопка додавання в кошик */
   .add-to-bask-btn {
-    background-color: #00a859;
+    background-color: #a80000;
     color: white;
     border: none;
-    padding: 6px 10px;
-    border-radius: 50%;
+    padding: 8px 12px;
+    border-radius: 8px;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
   
   .add-to-bask-btn:hover {
-    background-color: #008f4c;
+    background-color: #8f0000;
   }
+  
+  
+  .similar-products-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  /* Для планшетів (від 600px) */
+  @media (min-width: 600px) {
+    .food-card {
+      flex: 0 0 calc(33.333% - 10px); /* 3 картки в ряд */
+    }
+  }
+  
   

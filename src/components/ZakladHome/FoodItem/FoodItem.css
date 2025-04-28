@@ -1,45 +1,69 @@
+/* Контейнер картки їжі */
 .food-card {
-  flex: 0 0 calc(50% - 10px); /* 2 картки в ряд */
+  flex: 0 0 calc(50% - 10px); /* 2 картки в ряд на телефоні */
   box-sizing: border-box;
   border: 1px solid #ddd;
   padding: 12px;
   border-radius: 12px;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
-/* Стиль для зображення */
+/* Зображення їжі */
 .food-image {
   width: 100%;
-  height: 120px;
+  height: 140px;
   object-fit: cover;
   border-radius: 8px;
-  display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
+/* Назва страви */
 .food-card h4 {
-  font-size: 16px;
+  font-size: 18px;
   margin: 8px 0 4px;
-  text-align: center;
   color: #333;
 }
 
+/* Опис страви */
 .food-card p {
   font-size: 14px;
   color: #666;
-  text-align: center;
   margin-bottom: 8px;
 }
 
+/* Ціна страви */
+.food-card strong {
+  font-size: 16px;
+  color: #111;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Блок дій (посилання і кнопка) */
 .food-card-actions {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   margin-top: auto;
+}
+
+/* Посилання "Деталі" */
+.food-info-link {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.food-info-link:hover {
+  color: #0056b3;
 }
 
 /* Кнопка додавання до кошика */
@@ -47,8 +71,8 @@
   background-color: #00a859;
   color: white;
   border: none;
-  padding: 8px;
-  border-radius: 50%;
+  padding: 8px 12px;
+  border-radius: 8px;
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -58,17 +82,25 @@
   background-color: #008f4c;
 }
 
-/* Обгортка для списку карток */
+/* Контейнер списку товарів (за бажанням якщо потрібно стилізувати) */
 .similar-products-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  padding: 10px;
 }
 
-/* Для трохи більших екранів */
+/* Адаптив для планшетів */
 @media (min-width: 600px) {
   .food-card {
     flex: 0 0 calc(33.333% - 10px); /* 3 картки в ряд на планшеті */
+  }
+}
+
+/* Адаптив для дуже маленьких екранів */
+@media (max-width: 360px) {
+  .food-card {
+    flex: 0 0 100%; /* 1 картка в ряд */
   }
 }

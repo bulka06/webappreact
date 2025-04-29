@@ -46,10 +46,10 @@ const Header = ({ onOpenModal }) => {
 </div>
 
                 <div className="center">
-                    <div className="brand-text">
-                        <p>Служба доставки</p>
-                        <strong>FastGo</strong>
-                    </div>
+                <div className="brand-text">
+  <span className="brand-white">Служба доставки</span>
+  <strong className="brand-white">FastGo</strong>
+</div>
                 </div>
                 <div className="right" onClick={handleCartClick}>
                     <FiShoppingCart className="cart-icon" />

@@ -80,10 +80,29 @@
 
 .brand-text {
   text-align: center;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Add spacing between "Служба доставки" and "FastGo" */
+}
+
+
+
+.brand-white {
+  color: white; /* White color for "FastGo" */
+  font-size: 18px; /* Slightly larger for emphasis */
+}
+
+.brand {
+  text-align: center;
   font-weight: bold;
   font-size: 16px;
   line-height: 1.2;
+  color: red; /* Червоний колір */
 }
+
 
 .cart-count {
   background-color: #ff4c4c; /* Яскравий червоний */

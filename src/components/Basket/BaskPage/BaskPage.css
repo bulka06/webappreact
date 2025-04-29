@@ -1,41 +1,47 @@
 /* Глобальні стилі для всього сайту */
 body {
-  background-color: white; /* Білий фон для сторінки */
-  color: #000; /* Чорний текст для контрасту */
+  background-color: #f4f4f4; /* Легкий сірий фон для більш м'якого вигляду */
+  color: #333; /* Темний текст для гарного контрасту */
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif; /* Універсальний шрифт */
+  font-family: 'Arial', sans-serif;
   box-sizing: border-box;
 }
 
 .bask-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: white; /* Білий фон для контейнера */
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Легка тінь */
+  max-width: 700px; /* Зменшено ширину для гармонії */
+  margin: 30px auto; /* Додано простору зверху */
+  padding: 24px; /* Збільшено внутрішні відступи */
+  background-color: white; 
+  border-radius: 12px; /* Більш плавне закруглення */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Глибша тінь для об'єму */
 }
 
 h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  text-align: center; /* Центруємо заголовок */
-  color: #333; /* Темний текст */
+  font-size: 2.5rem; /* Більш виразний заголовок */
+  margin-bottom: 16px;
+  text-align: center; 
+  color: #222; /* Темніший текст для акценту */
 }
 
 .bask-items {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 20px; /* Збільшений проміжок між картками */
 }
 
 .bask-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  background-color: #fafafa; /* Світлий фон для карток */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Додаємо тінь */
+  border: 1px solid #ccc; /* Світліший колір обведення */
+  border-radius: 12px; 
+  padding: 16px; 
+  background-color: #fff; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Більш приваблива тінь */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bask-card:hover {
+  transform: scale(1.03); /* Легке збільшення при наведенні */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Інтерактивна тінь */
 }
 
 .bask-card-header {
@@ -48,45 +54,47 @@ h1 {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  color: #333; /* Темний текст кнопок */
+  color: #666; /* М'який темний текст */
 }
 
 .bask-card-header button:hover {
-  color: #e60023; /* Червоний колір при наведенні */
+  color: #e60023; 
 }
 
 .bask-card-body p {
-  margin: 0.5rem 0;
-  color: #555; /* Колір тексту для опису */
+  margin: 8px 0; 
+  color: #444; 
 }
 
 .bask-qty-input {
   width: 50px;
-  margin-left: 0.5rem;
+  margin-left: 12px;
   text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 0.3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px; 
+  padding: 6px; 
   background-color: #fff;
 }
 
 .bask-summary {
-  margin-top: 2rem;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  border-radius: 8px;
-  background-color: #f5f5f5; /* Світлий фон для підсумкової секції */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тіні для виразності */
+  margin-top: 40px; 
+  border: 1px solid #ccc; 
+  padding: 20px; 
+  border-radius: 12px; 
+  background-color: #fafafa; /* Легкий фон */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .bask-summary h2 {
-  margin-bottom: 1rem;
-  text-align: center;
+  margin-bottom: 20px; 
+  text-align: center; 
+  font-size: 1.8rem;
+  color: #222; /* Акцентований колір */
 }
 
 .bask-summary p {
-  margin: 0.5rem 0;
-  color: #555; /* Легка контрастність */
+  margin: 8px 0; 
+  color: #555; 
 }
 
 .bask-summary small {
@@ -96,44 +104,46 @@ h1 {
 .qty-controls {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-left: 1rem;
+  gap: 10px; 
+  margin-left: 12px;
 }
 
 .qty-controls button {
-  background-color: #ddd;
+  background-color: #e0e0e0; /* М'який фон */
   border: none;
-  padding: 0.3rem 0.6rem;
+  padding: 6px 12px; 
   font-size: 1rem;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px; 
+  transition: background-color 0.3s ease;
 }
 
 .qty-controls button:hover {
-  background-color: #ccc; /* Темніше при наведенні */
+  background-color: #ccc; 
 }
 
 .qty-controls input {
   width: 50px;
   text-align: center;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 0.3rem;
+  border-radius: 6px; 
+  padding: 6px;
   background-color: #fff;
 }
 
 .checkout-btn {
-  background-color: #e60023; /* Насичений червоний фон */
-  color: white; /* Білий текст */
+  background-color: #e60023; 
+  color: white; 
   border: none;
-  padding: 12px 24px;
+  padding: 14px 28px; 
   font-size: 16px;
-  border-radius: 8px;
+  border-radius: 8px; 
   cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
+  margin-top: 24px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .checkout-btn:hover {
-  background-color: #c9001d; /* Темніший червоний при наведенні */
+  background-color: #c9001d; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
 }

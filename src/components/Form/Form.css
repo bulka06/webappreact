@@ -44,7 +44,7 @@
   .submit-button {
     width: 100%;
     padding: 12px;
-    background-color: #28a745;
+    background-color: #a72828;
     color: white;
     font-size: 18px;
     border: none;
@@ -54,7 +54,7 @@
   }
   
   .submit-button:hover {
-    background-color: #218838;
+    background-color: #ff0000;
   }
   
   .submit-button:disabled {

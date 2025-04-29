@@ -3,32 +3,39 @@
     position: fixed;
     bottom: 20px;
     left: 20px;
-    background-color: #ff0000; /* Червоний фон */
-    color: white;
-    font-size: 30px; /* Збільшуємо розмір шрифта для значка телефону */
-    width: 60px; /* Ширина кнопки */
-    height: 60px; /* Висота кнопки */
-    border-radius: 50%; /* Кругла форма */
+    background-color: transparent;
+    color: #ff0000;
+    font-size: 60px;
+    font-weight: bold;
+    width: auto;
+    height: auto;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 1001;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 /* Іконка телефону всередині кнопки */
 .form-floating-button::before {
-    content: '\2706'; /* Unicode для значка телефону */
-    font-size: 30px; /* Розмір значка */
+    content: '\2706';
+    font-size: 60px;
+    font-weight: bold;
+    color: #000000;
+    /* Прибираємо потенційне обведення або фон */
+    background: none;
+    text-shadow: none;
+    -webkit-text-stroke: 0;
 }
 
 /* Кнопка при наведенні */
 .form-floating-button:hover {
-    background-color: #c82333; /* Тіньова зміна кольору при наведенні */
+    color: #c82333;
 }
-
 /* Оверлей для модалки */
 .form-modal-overlay {
     position: fixed;

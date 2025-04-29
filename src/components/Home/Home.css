@@ -5,13 +5,12 @@
     min-height: 100vh;
 }
 
-/* Фонова секція */
 .home-background {
     position: relative;
     background-image: url('../assets/homeIcon.jpg');
     background-size: cover;
     background-position: center;
-    height: 250px; /* Зменшуємо висоту картинки */
+    height: 200px; /* Reduce height further for smaller screens */
     display: flex;
     align-items: center;
     justify-content: center;

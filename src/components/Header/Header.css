@@ -1,17 +1,24 @@
+html, body {
+  padding-right: 20px;
+  margin: 0;
+  width: 100%;
+  overflow-x: clip;
+  box-sizing: border-box; /* Гарантуємо правильний розрахунок ширини */
+}
 .header-container {
   position: sticky;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100%;/* Використовуємо ширину вікна */
   z-index: 1000;
-  background-color: #111; /* Темний фон для преміального вигляду */
+  background-color: #111;
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 10px 0;
   height: 60px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* Глибші тіні */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .main-content {
@@ -68,11 +75,16 @@
 }
 
 .cart-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* Збільшено для видимості */
   font-size: 24px;
   color: white;
   cursor: pointer;
   transition: color 0.3s ease;
+  z-index: 2000; /* Важливо: переконатись, що елемент поверх усього */
 }
+
 
 .cart-icon:hover {
   color: #ff4c4c; /* Червоний колір при наведенні */
@@ -117,4 +129,16 @@
   min-width: 20px;
   min-height: 20px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+      padding: 10px; /* Зменшення внутрішніх відступів */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+      padding: 8px; /* Ще менший відступ для вузьких екранів */
+  }
 }

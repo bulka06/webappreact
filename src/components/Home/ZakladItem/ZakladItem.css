@@ -7,6 +7,11 @@
     padding: 12px;
     margin-bottom: 12px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* Залишаємо плавний перехід */
+}
+
+.place-card:hover {
+    transform: scale(1.02); /* Зменшуємо масштаб збільшення, наприклад, до 1.02 */
 }
 
 .place-image {
@@ -27,9 +32,13 @@
 }
 
 .place-schedule {
-    font-size: 14px;
-    color: #555;
-    white-space: pre-line;
+    text-align: left;
+    margin: 0; /* Прибираємо всі зовнішні відступи */
+    padding: 0; /* Прибираємо всі внутрішні відступи */
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    white-space: pre-line; /* Зберігаємо форматування без зайвих пробілів */
 }
 
 .new-label {

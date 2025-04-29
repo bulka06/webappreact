@@ -4,7 +4,7 @@ export const places = [
     id: '1',
     title: 'Pizza Soprano', /* Піца з Тераси  інше з То-То*/
     image: require('../assets/PizzaSoprano/SopranoPizzaLogo.png'),
-    schedule: 'понеділок – п’ятниця 08:00 – 21:00\nсубота – неділя 10:00 – 22:00',
+    schedule: 'понеділок – п’ятниця 08:00 – 21:00 \n субота – неділя 10:00 – 22:00' ,
     isNew: true,
     categories: [
       {
@@ -251,6 +251,7 @@ export const places = [
     title: 'Бон Апетит',  /*  З Чудовий ранок*/
     image: require('../assets/BonApetut/BonApetutLogo.jpg'),
     schedule: 'понеділок – пʼятниця 09:00 – 21:00\n субота – неділя 10:00 – 22:00',
+
     isNew: false,
     categories: [
       {

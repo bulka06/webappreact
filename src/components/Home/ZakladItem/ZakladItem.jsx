@@ -8,7 +8,15 @@ const ZakladItem = ({ place }) => {
             <img src={place.image} alt={place.title} className="place-image" />
             <div className="place-info">
                 <h3 className="place-title">{place.title}</h3>
-                <p className="place-schedule">{place.schedule}</p>
+                <p className="place-schedule">
+                {place.schedule.split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                 {line.replace(/^\s+|\s+$/g, '')} {/* Видаляємо пробіли на початку та в кінці */}
+                <br />
+                </React.Fragment>
+                ))}
+                </p>
+
             </div>
         </div>
     );

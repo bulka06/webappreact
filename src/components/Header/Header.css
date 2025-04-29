@@ -56,15 +56,15 @@
 }
 
 .back-icon {
-  font-size: 24px; /* Розмір стрілки */
-  font-weight: bold;
+  font-size:  48px; /* Розмір стрілки */
   color: white;
   cursor: pointer;
   transition: color 0.3s ease;
+  font-weight: 100
 }
 
 .back-icon:hover {
-  color: #ff4c4c; /* Червоний колір при наведенні */
+  color: #ffffff; /* Червоний колір при наведенні */
 }
 
 .cart-icon {

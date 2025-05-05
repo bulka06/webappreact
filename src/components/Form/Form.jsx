@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import useTelegram from '../hooks/useTelegram';
 import { useBask } from '../Basket/BaskContext/BaskContext';
-import './Form.css'; // Підключення CSS
+import './Form.css';
 
 const Form = () => {
   const { tg } = useTelegram();
@@ -26,32 +26,38 @@ const Form = () => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const onSendData = async () => {
+  // Надсилання через Telegram WebApp
+  const onSendData = useCallback(() => {
     const data = {
       ...form,
       baskItems,
       total: getTotal()
     };
-  
-    try {
-      const response = await fetch('https://9f24-91-245-98-16.ngrok-free.app/web-data', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-  
-      if (response.ok) {
-        alert('✅ Замовлення успішно надіслано!');
-      } else {
-        alert('❌ Помилка при надсиланні замовлення!');
-      }
-    } catch (error) {
-      console.error('Fetch error:', error);
-      alert('⚠️ Сталася помилка під час надсилання.');
+
+    tg.sendData(JSON.stringify(data));
+  }, [form, baskItems]);
+
+  // Показ/приховування кнопки
+  useEffect(() => {
+    if (!form.name || !form.phone || !form.city || !form.street) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.show();
     }
-  };
+  }, [form]);
+
+  // Ініціалізація кнопки Telegram
+  useEffect(() => {
+    tg.MainButton.setParams({ text: 'Підтвердити замовлення' });
+  }, []);
+
+  // Подія натискання кнопки
+  useEffect(() => {
+    tg.onEvent('mainButtonClicked', onSendData);
+    return () => {
+      tg.offEvent('mainButtonClicked', onSendData);
+    };
+  }, [onSendData]);
 
   return (
     <div className="form-container">
@@ -99,14 +105,6 @@ const Form = () => {
           <option value="Карта">Карта</option>
         </select>
       </div>
-
-      <button
-        className="submit-button"
-        onClick={onSendData}
-        // disabled={!form.name || !form.phone || !form.city || !form.street}
-      >
-        Підтвердити замовлення
-      </button>
     </div>
   );
 };

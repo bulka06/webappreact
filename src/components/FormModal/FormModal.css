@@ -1,7 +1,7 @@
 /* Кнопка для виклику форми */
 .form-floating-button {
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     left: 20px;
     background-color: transparent;
     color: #ff0000;

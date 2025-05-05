@@ -1,10 +1,8 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import useTelegram from '../hooks/useTelegram';
+import React, { useState } from 'react';
 import { useBask } from '../Basket/BaskContext/BaskContext';
 import './Form.css';
 
 const Form = () => {
-  const { tg } = useTelegram();
   const { baskItems } = useBask();
 
   const [form, setForm] = useState({
@@ -18,6 +16,8 @@ const Form = () => {
     time: ''
   });
 
+  const [status, setStatus] = useState(null);
+
   const getTotal = () => {
     return baskItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
   };
@@ -26,45 +26,46 @@ const Form = () => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // Надсилання через Telegram WebApp
-  const onSendData = useCallback(() => {
+  const handleSubmit = async () => {
+    // Перевірка на обов'язкові поля
+    const { name, phone, city, street } = form;
+    if (!name || !phone || !city || !street) {
+      setStatus('⚠️ Заповніть всі обовʼязкові поля');
+      return;
+    }
+
     const data = {
       ...form,
       baskItems,
       total: getTotal()
     };
 
-    tg.sendData(JSON.stringify(data));
-  }, [form, baskItems]);
+    try {
+      const response = await fetch('https://webappbot.onrender.com/order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
 
-  // Показ/приховування кнопки
-  useEffect(() => {
-    if (!form.name || !form.phone || !form.city || !form.street) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
+      if (response.ok) {
+        setStatus('✅ Замовлення успішно надіслано!');
+      } else {
+        setStatus('❌ Помилка при надсиланні замовлення.');
+      }
+    } catch (error) {
+      console.error('❌ Помилка запиту:', error);
+      setStatus('❌ Сталася помилка під час надсилання.');
     }
-  }, [form]);
-
-  // Ініціалізація кнопки Telegram
-  useEffect(() => {
-    tg.MainButton.setParams({ text: 'Підтвердити замовлення' });
-  }, []);
-
-  // Подія натискання кнопки
-  useEffect(() => {
-    tg.onEvent('mainButtonClicked', onSendData);
-    return () => {
-      tg.offEvent('mainButtonClicked', onSendData);
-    };
-  }, [onSendData]);
+  };
 
   return (
     <div className="form-container">
       <h2>Оформлення замовлення</h2>
 
       <div className="form-group">
-        <label>Ім'я</label>
+        <label>Ім'я *</label>
         <input name="name" value={form.name} onChange={handleChange} />
       </div>
 
@@ -74,17 +75,17 @@ const Form = () => {
       </div>
 
       <div className="form-group">
-        <label>Телефон</label>
+        <label>Телефон *</label>
         <input name="phone" value={form.phone} onChange={handleChange} />
       </div>
 
       <div className="form-group">
-        <label>Місто</label>
+        <label>Місто *</label>
         <input name="city" value={form.city} onChange={handleChange} />
       </div>
 
       <div className="form-group">
-        <label>Вулиця</label>
+        <label>Вулиця *</label>
         <input name="street" value={form.street} onChange={handleChange} />
       </div>
 
@@ -105,6 +106,10 @@ const Form = () => {
           <option value="Карта">Карта</option>
         </select>
       </div>
+
+      <button className="submit-button" onClick={handleSubmit}>Надіслати замовлення</button>
+
+      {status && <p className="form-status">{status}</p>}
     </div>
   );
 };
